@@ -121,7 +121,54 @@ CREATE TABLE tour.danhmuc (
   PRIMARY KEY (id)
 );
 
-
+CREATE TABLE tour.room (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  ma varchar(255) DEFAULT NULL,
+  ten varchar(255) DEFAULT NULL,
+  anh varchar(255) DEFAULT NULL,
+  ma_hotel varchar(255) DEFAULT NULL,
+  gia varchar(255) DEFAULT NULL,
+  giam_gia varchar(255) DEFAULT NULL,
+  gia_sau_giam varchar(255) DEFAULT NULL,
+  yeu_thich varchar(255) DEFAULT NULL,
+  van_tat varchar(255) DEFAULT NULL,
+  mo_ta TEXT DEFAULT NULL,
+  danh_gia varchar(255) DEFAULT NULL,
+  thoi_gian VARCHAR(255) DEFAULT NULL,
+  ngay_tao date DEFAULT NULL,
+  ngay_capnhat date DEFAULT NULL,
+  ma_nguoi_tao varchar(255) DEFAULT NULL,
+  ma_nguoi_capnhat varchar(255) DEFAULT NULL,
+  trang_thai int(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+CREATE TABLE tour.gio_hang (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  ma varchar(255) DEFAULT NULL,
+  user_id int(11) DEFAULT NULL,
+  ma_tour varchar(255) DEFAULT NULL,
+  ma_room varchar(255) DEFAULT NULL,
+  ngay_tao date DEFAULT NULL,
+  trang_thai int(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+CREATE TABLE tour.hoa_don (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  ma varchar(255) DEFAULT NULL,
+  user_id int(11) DEFAULT NULL,
+  ma_tour varchar(255) DEFAULT NULL,
+  ma_room varchar(255) DEFAULT NULL,
+  trang_thai int(11) DEFAULT NULL,
+  ho_ten varchar(255) DEFAULT NULL,
+  dia_chi TEXT DEFAULT NULL,
+  so_dien_thoai varchar(255) DEFAULT NULL,
+  email varchar(255) DEFAULT NULL,
+  loai_thanhtoan int(11) DEFAULT NULL,
+  so_tai_khoan varchar(255) DEFAULT NULL,
+  thanh_tien varchar(255) DEFAULT NULL,
+  ngay_tao date DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 -- thu tuc
 -- DROP PROCEDURE IF EXISTS proc_GetTourSale;
 CREATE DEFINER = 'root'@'localhost'
