@@ -10,7 +10,7 @@ namespace DoAnAspNet.core.Interface
     {
         IEnumerable GetHotelBySearch(string keySearch);
 
-        IEnumerable GetHotelByDanhMuc(int id);
+        IEnumerable GetHotelByDanhMuc(string ma_tour);
 
         IEnumerable GetHotelFeatured();
 

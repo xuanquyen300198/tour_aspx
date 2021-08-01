@@ -8,9 +8,9 @@ namespace DoAnAspNet.core.Interface
 {
     public interface ITour<Tour>
     {
-        IEnumerable GetTourBySearch(string keySearch);
+        IEnumerable GetTourBySearch(Tour tour);
 
-        IEnumerable GetTourByDanhMuc(int id);
+        IEnumerable GetTourByDanhMuc(string ma_danhmuc);
 
         IEnumerable GetTourFeatured();
 

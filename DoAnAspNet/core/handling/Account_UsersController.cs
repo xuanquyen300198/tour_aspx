@@ -16,7 +16,7 @@ namespace DoAnAspNet.core.handling
         }
         public override int AddNewEntity(Account_User entity)
         {
-            _ma = "ma_user";
+            _id = "ma_user";
             return base.AddNewEntity(entity);
         }
 
@@ -36,12 +36,12 @@ namespace DoAnAspNet.core.handling
         }
         public override int DelEntity(int id)
         {
-            _ma = "ma_user";
+            _id = "ma_user";
             return base.DelEntity(id);
         }
         public override Account_User GetEntityByID(int id)
         {
-            _ma = "ma_user";
+            _id = "ma_user";
             return base.GetEntityByID(id);
         }
 

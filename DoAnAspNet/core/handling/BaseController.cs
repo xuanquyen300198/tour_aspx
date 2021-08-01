@@ -14,7 +14,7 @@ namespace DoAnAspNet.core.handling
     {
         protected IDbConnection _dbConnection = GetConnect.GetDBConnection();
         private string _tableName = typeof(TEntity).Name;
-        protected string _ma = "";
+        protected string _id = "";
         public virtual int AddNewEntity(TEntity entity)
         {
             DynamicParameters dynamicParameters = new DynamicParameters();//Tạo biến dynamicParameter map thuộc tính vs giá trị
@@ -22,7 +22,7 @@ namespace DoAnAspNet.core.handling
             foreach (var property in properties)//Duyệt từng thuộc tính vừa lấy được
             {
                 var propertyName = property.Name;//Lấy tên thuộc tính
-                if (propertyName == _ma)
+                if (propertyName == _id)
                 {
                     continue; ;
                 }
@@ -35,7 +35,7 @@ namespace DoAnAspNet.core.handling
 
         public virtual int DelEntity(int id)
         {
-            return _dbConnection.Execute($"Delete From {_tableName} Where {_ma}={id}", commandType: CommandType.Text);
+            return _dbConnection.Execute($"Delete From {_tableName} Where {_id}={id}", commandType: CommandType.Text);
         }
 
         public int EditEntity(TEntity entity)
@@ -58,7 +58,7 @@ namespace DoAnAspNet.core.handling
 
         public virtual TEntity GetEntityByID(int id)
         {
-            return _dbConnection.Query<TEntity>($"Select * From {_tableName} Where {_ma}={id}", commandType: CommandType.Text).FirstOrDefault();
+            return _dbConnection.Query<TEntity>($"Select * From {_tableName} Where {_id}={id}", commandType: CommandType.Text).FirstOrDefault();
         }
     }
 }

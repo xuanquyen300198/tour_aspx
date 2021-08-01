@@ -11,7 +11,7 @@ namespace DoAnAspNet.template.page
 {
     public partial class index : System.Web.UI.Page
     {
-        
+
         DanhMucsController danhMucsController = new DanhMucsController();
         TourController tourController = new TourController();
         HotelController hotelController = new HotelController();
@@ -24,8 +24,27 @@ namespace DoAnAspNet.template.page
             lstTour = new List<Tour>();
             lstHotel = new List<Hotel>();
             lstDanhmuc = (List<DanhMuc>)danhMucsController.GetAllDanhMuc();
+            if (lstDanhmuc.Count > 0)
+            {
+                for (int i = 0; i < lstDanhmuc.Count; i++)
+                {
+                    ListItem item = new ListItem(lstDanhmuc[i].ten.ToString(), lstDanhmuc[i].ma.ToString());
+                    selectDanhMuc.Items.Add(item);
+                }
+            }
             lstTour = (List<Tour>)tourController.GetTourSale();
             lstHotel = (List<Hotel>)hotelController.GetHotelSale();
+        }
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keySearch = textSearch.Text.Trim().ToString();
+            string selectedValue = selectDanhMuc.SelectedItem.Value;
+            if (keySearch != null && (selectedValue != null && selectedValue != ""))
+            {
+                Session["keySearch"] = keySearch;
+                Session["selectedValue"] = selectedValue;
+                Response.Redirect("tour.aspx");
+            }
         }
     }
 }

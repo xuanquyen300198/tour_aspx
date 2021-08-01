@@ -11,10 +11,9 @@ namespace DoAnAspNet.core.handling
 {
     public class TourController : BaseController<Tour>, ITour<Tour>
     {
-        public IEnumerable GetTourByDanhMuc(int id)
+        public IEnumerable GetTourByDanhMuc(string ma_danhmuc)
         {
-            throw new NotImplementedException();
-            //return _dbConnection.Query<Tour>("proc_GetTourByDanhMuc", new { ma_danh_muc = id }, commandType: System.Data.CommandType.StoredProcedure);
+            return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE ma_danhmuc = '{ma_danhmuc}'", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetTourByPage(int at, int total)
@@ -22,10 +21,9 @@ namespace DoAnAspNet.core.handling
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetTourBySearch(string keySearch)
+        public IEnumerable GetTourBySearch(Tour tour)
         {
-            throw new NotImplementedException();
-            //return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE LOWER(ten_mon) LIKE '%{keySearch}%'", commandType: System.Data.CommandType.Text);
+            return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE ma_danhmuc = '{tour.ma_danhmuc}' And LOWER(ten) LIKE LOWER('%{tour.ten}%') ", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetTourFeatured()
@@ -47,7 +45,7 @@ namespace DoAnAspNet.core.handling
 
         public override Tour GetEntityByID(int id)
         {
-            _ma = "ma_mon";
+            _id = "id";
             return base.GetEntityByID(id);
         }
 
@@ -59,7 +57,7 @@ namespace DoAnAspNet.core.handling
 
         public override int DelEntity(int id)
         {
-            _ma = "ma_mon";
+            _id = "id";
             return base.DelEntity(id);
         }
     }

@@ -32,8 +32,7 @@ namespace DoAnAspNet.template.page
             if (!pass.Equals(confpass)) 
             {
                 Response.Write("<script>alert('Mật khẩu không trùng nhau!')</script>");
-            }
-            if (account_UsersController.GetUserByUsername(name) != null)
+            }else if (account_UsersController.GetUserByUsername(name) != null)
             {
                 Response.Write("<script>alert('Tên tài khoản đã tồn tại!')</script>");
             }

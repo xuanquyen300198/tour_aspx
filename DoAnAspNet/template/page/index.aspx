@@ -36,29 +36,26 @@
                         <div class="d-block d-flex">
                             <div class="fields d-block d-flex" style="width: 85%">
                                 <div class="textfield-search one-third" style="width: 50%">
-                                    <input type="text" class="form-control" placeholder="Ví dụ: địa điểm" style="margin: auto; border: none;">
+                                    <asp:TextBox runat="server" ID="textSearch" type="text" class="form-control" placeholder="Ví dụ: địa điểm" style="margin: auto; border: none;" />
                                 </div>
                                 <div class="select-wrap one-third" style="width: 50%">
                                     <div class="icon" style="position: absolute; top: 50%; right: 30px; font-size: 14px;">
                                         <span class="ion-ios-arrow-down"></span>
                                     </div>
-                                    <select name="" id="" class="form-control" placeholder="Keyword search" style="max-width: none">
-                                        <option value="">Địa điểm</option>
-                                        <%foreach (var item in lstDanhmuc)
-                                        { %>
-                                        <option value="<%= item.ma %>"><%= item.ten %></option>
-                                        <%} %>
-                                    </select>
+                                    <asp:DropDownList ID="selectDanhMuc" runat="server" class="form-control" placeholder="Keyword search" style="max-width: none">
+                                          <asp:ListItem Text="Địa điểm" Value=""></asp:ListItem>
+                                     </asp:DropDownList>
+                                    
                                 </div>
                             </div>
-                            <input type="submit" class="search-submit btn btn-primary" value="Tìm kiếm" style="width: 15%; border-radius: unset; font-size: 15px;">
+                            <asp:Button runat="server" class="search-submit btn btn-primary" Text="Tìm kiếm" style="width: 15%; border-radius: unset; font-size: 15px;" ID="btnSearch" OnClick="btnSearch_Click" />
                         </div>
                     </div>
                     <p>Hoặc duyệt qua các điểm nổi bật</p>
                     <p class="browse d-md-flex">
                         <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-fork"></i>Nhà hàng</a></span>
-                        <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-hotel"></i>Khách sạn</a></span>
-                        <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-meeting-point"></i>Địa điểm</a></span>
+                        <span class="d-flex justify-content-md-center align-items-md-center"><a href="hotel.aspx"><i class="flaticon-hotel"></i>Khách sạn</a></span>
+                        <span class="d-flex justify-content-md-center align-items-md-center"><a href="tour.aspx"><i class="flaticon-meeting-point"></i>Địa điểm</a></span>
                         <span class="d-flex justify-content-md-center align-items-md-	center"><a href="#"><i class="flaticon-shopping-bag"></i>Mua sắm</a></span>
                     </p>
                 </div>

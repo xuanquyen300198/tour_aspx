@@ -13,13 +13,13 @@ namespace DoAnAspNet.core.handling
     {
         public override DanhMuc GetEntityByID(int id)
         {
-            _ma = "ma_danh_muc";
+            _id = "id";
             return base.GetEntityByID(id);
         }
 
         public override int DelEntity(int id)
         {
-            _ma = "ma_danh_muc";
+            _id = "id";
             return base.DelEntity(id);
         }
 

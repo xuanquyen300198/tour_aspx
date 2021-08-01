@@ -29,11 +29,15 @@ namespace DoAnAspNet.core.Object
         public string thoi_gian { get; set; }
         public string van_tat { get; set; }
         public string gia_sau_giam { get; set; }
+        public string anh_ct1 { get; set; }
+        public string anh_ct2 { get; set; }
+        public string anh_ct3 { get; set; }
+        public string dia_diem { get; set; }
         #endregion
         #region Contructor
-        public Tour(){ }
+        public Tour() { }
 
-        public Tour(int id, string ma, string ten,string anh,string ma_danhmuc, string gia, string giam_gia,string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai , string thoi_gian, string van_tat,string gia_sau_giam)
+        public Tour(int id, string ma, string ten, string anh, string ma_danhmuc, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3, string dia_diem)
         {
             this.id = id;
             this.ma = ma;
@@ -53,6 +57,10 @@ namespace DoAnAspNet.core.Object
             this.thoi_gian = thoi_gian;
             this.van_tat = van_tat;
             this.gia_sau_giam = gia_sau_giam;
+            this.anh_ct1 = anh_ct1;
+            this.anh_ct2 = anh_ct2;
+            this.anh_ct3 = anh_ct3;
+            this.dia_diem = dia_diem;
         }
         #endregion
     }

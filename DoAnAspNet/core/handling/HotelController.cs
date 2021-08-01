@@ -16,9 +16,9 @@ namespace DoAnAspNet.core.handling
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelByDanhMuc(int id)
+        public IEnumerable GetHotelByDanhMuc(string ma_tour)
         {
-            throw new NotImplementedException();
+            return _dbConnection.Query<Hotel>($"SELECT * FROM Hotel WHERE ma_tour = '{ma_tour}'", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetHotelByPage(int at, int total)

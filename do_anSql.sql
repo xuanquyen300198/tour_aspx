@@ -41,6 +41,23 @@ ALTER TABLE tour
   ADD COLUMN van_tat VARCHAR(255) DEFAULT NULL;
 ALTER TABLE tour 
   ADD COLUMN gia_sau_giam VARCHAR(255) DEFAULT NULL;
+
+ALTER TABLE tour 
+  ADD COLUMN anh_ct1 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct2` on table `tour`
+--
+ALTER TABLE tour 
+  ADD COLUMN anh_ct2 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct3` on table `tour`
+--
+ALTER TABLE tour 
+  ADD COLUMN anh_ct3 VARCHAR(255) DEFAULT NULL;
+ALTER TABLE tour 
+  ADD COLUMN dia_diem TEXT DEFAULT NULL;
 -- chi hotel
 CREATE TABLE tour.hotel (
   id int(11) NOT NULL AUTO_INCREMENT,
