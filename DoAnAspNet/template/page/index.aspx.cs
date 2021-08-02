@@ -41,9 +41,7 @@ namespace DoAnAspNet.template.page
             string selectedValue = selectDanhMuc.SelectedItem.Value;
             if (keySearch != null && (selectedValue != null && selectedValue != ""))
             {
-                Session["keySearch"] = keySearch;
-                Session["selectedValue"] = selectedValue;
-                Response.Redirect("tour.aspx");
+                Response.Redirect("tour.aspx?keySearch=" + keySearch + "&selectedValue="+ selectedValue+"");
             }
         }
     }

@@ -15,18 +15,31 @@ namespace DoAnAspNet.template.page
         TourController tourController = new TourController();
         public int count;
         public List<Tour> lstTour;
+        public List<DanhMuc> lstDanhmuc;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string keySearch = Session["keySearch"].ToString();
-            string selectedValue = Session["selectedValue"].ToString();
+            
             lstTour = new List<Tour>();
-            Tour tourSearch = new Tour();
-            if ((keySearch != null && keySearch != "") || (selectedValue != null && selectedValue != ""))
+            lstDanhmuc = new List<DanhMuc>();
+            OBFilter objFilter = new OBFilter();
+            objFilter.limit = 10;
+            objFilter.offset = 0;
+            lstDanhmuc = (List<DanhMuc>)danhMucsController.GetAllDanhMuc();
+            if (lstDanhmuc.Count > 0)
             {
-                tourSearch.ten = keySearch;
-                tourSearch.ma_danhmuc = selectedValue;
-                lstTour = (List<Tour>)tourController.GetTourBySearch(tourSearch);
-                int a = lstTour.Count;
+                for (int i = 0; i < lstDanhmuc.Count; i++)
+                {
+                    ListItem item = new ListItem(lstDanhmuc[i].ten.ToString(), lstDanhmuc[i].ma.ToString());
+                    selectDanhMuc.Items.Add(item);
+                }
+            }
+            string keySearch = Request.QueryString["keySearch"].ToString();
+            string selectedValue = Request.QueryString["selectedValue"].ToString();
+            if ((!string.IsNullOrEmpty(keySearch)) || (!string.IsNullOrEmpty(selectedValue)))
+            {
+                objFilter.ten = keySearch;
+                objFilter.ma = selectedValue;
+                lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
             }
 
         }

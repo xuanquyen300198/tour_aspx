@@ -9,43 +9,43 @@ using System.Web;
 
 namespace DoAnAspNet.core.handling
 {
-    public class HotelController : BaseController<Hotel>, IHotel<Hotel>
+    public class RoomController : BaseController<Room>, IRoom<Room>
     {
-        public int CountHotelByDanhMuc(int maDanhMuc)
+        public int CountRoomByDanhMuc(int maDanhMuc)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelByDanhMuc(string ma_tour)
+        public IEnumerable GetRoomByDanhMuc(string ma_hotel)
         {
-            return _dbConnection.Query<Hotel>($"SELECT * FROM Hotel WHERE ma_tour = '{ma_tour}'", commandType: System.Data.CommandType.Text);
+            return _dbConnection.Query<Room>($"SELECT * FROM Room WHERE ma_hotel = '{ma_hotel}'", commandType: System.Data.CommandType.Text);
         }
 
-        public IEnumerable GetHotelByPage(int at, int total)
+        public IEnumerable GetRoomByPage(int at, int total)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelBySearch(string keySearch)
+        public IEnumerable GetRoomBySearch(string keySearch)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelFeatured()
+        public IEnumerable GetRoomFeatured()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelLaster()
+        public IEnumerable GetRoomLaster()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetHotelSale()
+        public IEnumerable GetRoomSale()
         {
-            return _dbConnection.Query<Hotel>("proc_GetHotelSale", commandType: System.Data.CommandType.StoredProcedure);
+            return _dbConnection.Query<Room>("proc_GetRoomSale", commandType: System.Data.CommandType.StoredProcedure);
         }
-        public override Hotel GetEntityByID(int id)
+        public override Room GetEntityByID(int id)
         {
             _id = "id";
             return base.GetEntityByID(id);

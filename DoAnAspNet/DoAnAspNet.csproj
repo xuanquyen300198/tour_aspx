@@ -286,16 +286,20 @@
     <Compile Include="core\handling\DanhMucsController.cs" />
     <Compile Include="core\handling\HotelController.cs" />
     <Compile Include="core\handling\IAccount_Admin.cs" />
+    <Compile Include="core\handling\RoomController.cs" />
     <Compile Include="core\handling\TourController.cs" />
     <Compile Include="core\Interface\IAccount_User.cs" />
     <Compile Include="core\Interface\IBase.cs" />
     <Compile Include="core\Interface\IDanhMuc.cs" />
     <Compile Include="core\Interface\IHotel.cs" />
+    <Compile Include="core\Interface\IRoom.cs" />
     <Compile Include="core\Interface\ITour.cs" />
     <Compile Include="core\Object\Account_Admin.cs" />
     <Compile Include="core\Object\Account_User.cs" />
     <Compile Include="core\Object\DanhMuc.cs" />
     <Compile Include="core\Object\Hotel.cs" />
+    <Compile Include="core\Object\OBFilter.cs" />
+    <Compile Include="core\Object\Room.cs" />
     <Compile Include="core\Object\Tour.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

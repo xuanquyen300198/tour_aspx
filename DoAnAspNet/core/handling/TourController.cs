@@ -21,9 +21,9 @@ namespace DoAnAspNet.core.handling
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetTourBySearch(Tour tour)
+        public IEnumerable GetTourBySearch(OBFilter objFilter)
         {
-            return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE ma_danhmuc = '{tour.ma_danhmuc}' And LOWER(ten) LIKE LOWER('%{tour.ten}%') ", commandType: System.Data.CommandType.Text);
+            return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE ma_danhmuc = '{objFilter.ma}' And LOWER(ten) LIKE LOWER('%{objFilter.ten}%') LIMIT {objFilter.limit} OFFSET {objFilter.offset} ", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetTourFeatured()

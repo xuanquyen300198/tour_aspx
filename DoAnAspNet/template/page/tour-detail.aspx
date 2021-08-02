@@ -10,9 +10,9 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
                     <li class="nav-item"><a href="about-us.aspx" class="nav-link">Giới thiệu</a></li>
-                    <li class="nav-item"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
+                    <li class="nav-item active"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
                     <li class="nav-item"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
@@ -130,11 +130,11 @@
                                         { %>
                                 <div class="col-md-4">
                                     <div class="destination">
-                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../images//room-4.jpg);"></a>
+                                        <a href="hotel-detail.aspx?pId=<%= lstHotel[i].id %>" class="img img-2" style="background-image: url(../images//room-4.jpg);"></a>
                                         <div class="text p-3">
                                             <div class="d-flex">
                                                 <div class="one">
-                                                    <h3><a href="hotel-single.html"><%= lstHotel[i].ten %></a></h3>
+                                                    <h3 style="min-height: 80px;"><a href="hotel-detail.aspx?pId=<%= lstHotel[i].id %>"><%= lstHotel[i].ten %></a></h3>
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -149,7 +149,7 @@
                                                         <small>/<%= lstHotel[i].thoi_gian %></small></span>
                                                 </div>
                                             </div>
-                                            <p><%= lstHotel[i].van_tat %></p>
+                                            <p style="min-height: 80px;"><%= lstHotel[i].van_tat %></p>
                                             <hr>
                                             <p class="bottom-area d-flex">
                                                 <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color:red"><%= lstHotel[i].giam_gia %> %</span> - <span style="text-decoration-line:line-through">$<%= lstHotel[i].gia %></span></span>
@@ -266,11 +266,11 @@
                                     { %>
                                 <div class="col-md-4">
                                     <div class="destination">
-                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../images//hotel-1.jpg);"></a>
+                                        <a href="tour-detail.aspx?pId=<%= lstTour[i].id %>" class="img img-2" style="background-image: url(../images//hotel-1.jpg);"></a>
                                         <div class="text p-3">
                                             <div class="d-flex">
                                                 <div class="one">
-                                                    <h3><a href="hotel-single.html"><%= lstTour[i].ten %></a></h3>
+                                                    <h3 style="min-height: 80px;"><a href="tour-detail.aspx?pId=<%= lstTour[i].id %>"><%= lstTour[i].ten %></a></h3>
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -285,7 +285,7 @@
                                                         <small><%= lstTour[i].thoi_gian %></small></span>
                                                 </div>
                                             </div>
-                                            <p><%= lstTour[i].van_tat %></p>
+                                            <p style="min-height: 80px;"><%= lstTour[i].van_tat %></p>
                                             <hr>
                                             <p class="bottom-area d-flex">
                                                 <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color:red"><%= lstTour[i].giam_gia %> %</span> - <span style="text-decoration-line:line-through">$<%= lstTour[i].gia %></span></span>

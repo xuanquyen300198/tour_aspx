@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using DoAnAspNet.core.Object;
+
 namespace DoAnAspNet.core.Interface
 {
     public interface ITour<Tour>
     {
-        IEnumerable GetTourBySearch(Tour tour);
+        IEnumerable GetTourBySearch(OBFilter objFilter);
 
         IEnumerable GetTourByDanhMuc(string ma_danhmuc);
 

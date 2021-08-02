@@ -180,7 +180,7 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3 style="min-height: 53px;"><a href="#"><%= item.ten %></a></h3>
+                                    <h3 style="min-height: 80px;"><a href="#"><%= item.ten %></a></h3>
                                     <p class="rate">
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
@@ -194,7 +194,7 @@
                                     <span class="price">$<%= item.gia_sau_giam %></span>
                                 </div>
                             </div>
-                            <p><%= item.van_tat %></p>
+                            <p style="min-height: 80px;"><%= item.van_tat %></p>
                             <p class="days"><span><%= item.thoi_gian %></span></p>
                             <hr>
                             <p class="bottom-area d-flex">
@@ -276,7 +276,7 @@
                     { %>
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images/<%= item.anh %>);">
+                        <a href="hotel-detail.aspx?pId=<%= item.id %>" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images/<%= item.anh %>);">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-search2"></span>
                             </div>
@@ -284,7 +284,7 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#"><%= item.ten %></a></h3>
+                                    <h3 style="min-height: 80px;"><a href="hotel-detail.aspx?pId=<%= item.id %>"><%= item.ten %></a></h3>
                                     <p class="rate">
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
@@ -299,7 +299,7 @@
                                         <small>/<%= item.thoi_gian %></small></span>
                                 </div>
                             </div>
-                            <p><%= item.van_tat %></p>
+                            <p style="min-height: 80px;"><%= item.van_tat %></p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color:red"><%= item.giam_gia %> %</span> - <span style="text-decoration-line:line-through">$<%= item.gia %></span></span>

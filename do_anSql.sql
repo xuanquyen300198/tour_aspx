@@ -80,6 +80,26 @@ CREATE TABLE tour.hotel (
   trang_thai int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 );
+ALTER TABLE hotel 
+  ADD COLUMN anh_ct1 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct2` on table `hotel`
+--
+ALTER TABLE hotel 
+  ADD COLUMN anh_ct2 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct3` on table `hotel`
+--
+ALTER TABLE hotel 
+  ADD COLUMN anh_ct3 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `dia_chi` on table `hotel`
+--
+ALTER TABLE hotel 
+  ADD COLUMN dia_chi TEXT DEFAULT NULL;
 
 CREATE TABLE tour.account_user (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -159,6 +179,20 @@ CREATE TABLE tour.room (
   trang_thai int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 );
+ALTER TABLE room 
+  ADD COLUMN anh_ct1 NVARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct2` on table `room`
+--
+ALTER TABLE room 
+  ADD COLUMN anh_ct2 VARCHAR(255) DEFAULT NULL;
+
+--
+-- Create column `anh_ct3` on table `room`
+--
+ALTER TABLE room 
+  ADD COLUMN anh_ct3 VARCHAR(255) DEFAULT NULL;
 CREATE TABLE tour.gio_hang (
   id int(11) NOT NULL AUTO_INCREMENT,
   ma varchar(255) DEFAULT NULL,

@@ -5,14 +5,14 @@ using System.Web;
 
 namespace DoAnAspNet.core.Object
 {
-    public class Hotel
+    public class Room
     {
         #region Declare
         public int id { get; set; }
         public string ma { get; set; }
         public string ten { get; set; }
         public string anh { get; set; }
-        public string ma_tour { get; set; }
+        public string ma_hotel { get; set; }
         public string gia { get; set; }
         public string giam_gia { get; set; }
         public string yeu_thich { get; set; }
@@ -35,15 +35,15 @@ namespace DoAnAspNet.core.Object
         public string dia_chi { get; set; }
         #endregion
         #region Contructor
-        public Hotel() { }
+        public Room() { }
 
-        public Hotel(int id, string ma, string ten, string anh, string ma_tour, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam,string anh_ct1, string anh_ct2, string anh_ct3, string dia_chi)
+        public Room(int id, string ma, string ten, string anh, string ma_hotel, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3)
         {
             this.id = id;
             this.ma = ma;
             this.ten = ten;
             this.anh = anh;
-            this.ma_tour = ma_tour;
+            this.ma_hotel = ma_hotel;
             this.gia = gia;
             this.danh_gia = giam_gia;
             this.yeu_thich = yeu_thich;
@@ -60,7 +60,6 @@ namespace DoAnAspNet.core.Object
             this.anh_ct1 = anh_ct1;
             this.anh_ct2 = anh_ct2;
             this.anh_ct3 = anh_ct3;
-            this.dia_chi = dia_chi;
         }
         #endregion
     }

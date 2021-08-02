@@ -10,10 +10,10 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.aspx" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about-us.aspx" class="nav-link">About</a></li>
-                    <li class="nav-item active"><a href="tour.aspx" class="nav-link">Tour</a></li>
-                    <li class="nav-item"><a href="hotel.aspx" class="nav-link">Hotels</a></li>
+                    <li class="nav-item"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="about-us.aspx" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item active"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
+                    <li class="nav-item"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Add listing</span></a></li>
@@ -29,7 +29,7 @@
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                     <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Tour</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Du lịch</h1>
                 </div>
             </div>
         </div>
@@ -41,22 +41,18 @@
             <div class="row">
                 <div class="col-lg-3 sidebar ftco-animate">
                     <div class="sidebar-wrap bg-light ftco-animate">
-                        <h3 class="heading mb-4">Find City</h3>
+                        <h3 class="heading mb-4">Tìm tour</h3>
                         <form action="#">
                             <div class="fields">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Destination, City">
+                                    <asp:TextBox runat="server" ID="textSearch" class="form-control" placeholder="Tour" />
                                 </div>
                                 <div class="form-group">
                                     <div class="select-wrap one-third">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="" id="" class="form-control" placeholder="Keyword search">
-                                            <option value="">Select Location</option>
-                                            <option value="">San Francisco USA</option>
-                                            <option value="">Berlin Germany</option>
-                                            <option value="">Lodon United Kingdom</option>
-                                            <option value="">Paris Italy</option>
-                                        </select>
+                                        <asp:DropDownList ID="selectDanhMuc" runat="server" class="form-control" placeholder="Keyword search" Style="max-width: none">
+                                            <asp:ListItem Text="Địa điểm" Value=""></asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,31 +84,31 @@
                         <form method="post" class="star-rating">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="margin-left: 20px;">
                                     <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="margin-left: 20px;">
                                     <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="margin-left: 20px;">
                                     <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="margin-left: 20px;">
                                     <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="margin-left: 20px;">
                                     <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
                                 </label>
                             </div>
@@ -121,9 +117,11 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
+                        <%foreach (var item in lstTour)
+                            { %>
                         <div class="col-md-4 ftco-animate">
                             <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-1.jpg);">
+                                <a href="tour-detail.aspx?pId=<%= item.id %>" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images/<%= item.anh %>);">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-search2"></span>
                                     </div>
@@ -131,200 +129,31 @@
                                 <div class="text p-3">
                                     <div class="d-flex">
                                         <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
+                                            <h3 style="min-height: 80px;"><a href="tour-detail.aspx?pId=<%= item.id %>"><%= item.ten %></a></h3>
                                             <p class="rate">
                                                 <i class="icon-star"></i>
                                                 <i class="icon-star"></i>
                                                 <i class="icon-star"></i>
                                                 <i class="icon-star"></i>
                                                 <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
+                                                <span><%= item.danh_gia %> Star</span>
                                             </p>
                                         </div>
                                         <div class="two">
-                                            <span class="price">$200</span>
+                                            <span class="price">$<%= item.gia_sau_giam %></span>
                                         </div>
                                     </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
+                                    <p style="min-height: 80px;"><%= item.van_tat %></p>
+                                    <p class="days"><span><%= item.thoi_gian %></span></p>
                                     <hr>
                                     <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
+                                        <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color:red"><%= item.giam_gia %> %</span> - <span style="text-decoration-line:line-through">$<%= item.gia %></span></span>
+                                        <span class="ml-auto"><a href="#">Đặt lịch</a></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-2.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
-                                            <p class="rate">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
-                                            </p>
-                                        </div>
-                                        <div class="two">
-                                            <span class="price">$200</span>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
-                                    <hr>
-                                    <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-3.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
-                                            <p class="rate">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
-                                            </p>
-                                        </div>
-                                        <div class="two">
-                                            <span class="price">$200</span>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
-                                    <hr>
-                                    <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-4.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
-                                            <p class="rate">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
-                                            </p>
-                                        </div>
-                                        <div class="two">
-                                            <span class="price">$200</span>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
-                                    <hr>
-                                    <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-5.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
-                                            <p class="rate">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
-                                            </p>
-                                        </div>
-                                        <div class="two">
-                                            <span class="price">$200</span>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
-                                    <hr>
-                                    <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images//destination-6.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="#">Paris, Italy</a></h3>
-                                            <p class="rate">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-o"></i>
-                                                <span>8 Rating</span>
-                                            </p>
-                                        </div>
-                                        <div class="two">
-                                            <span class="price">$200</span>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                    <p class="days"><span>2 days 3 nights</span></p>
-                                    <hr>
-                                    <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                                        <span class="ml-auto"><a href="#">Discover</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <%} %>
                     </div>
                     <div class="row mt-5">
                         <div class="col text-center">
