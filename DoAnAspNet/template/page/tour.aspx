@@ -64,17 +64,17 @@
                                 <div class="form-group">
                                     <div class="range-slider">
                                         <span>
-                                            <input type="number" value="25000" min="0" max="120000" />
+                                            <input type="number" name="amountInput" min="0" max="2000" value="0" oninput="this.form.amountRange.value=this.value" />
                                             -
-										    <input type="number" value="50000" min="0" max="120000" />
+										    <input type="number" name="amountInputMax" min="0" max="1000" value="500" oninput="this.form.amountRangeMax.value=this.value" />
                                         </span>
-                                        <input value="1000" min="0" max="120000" step="500" type="range" />
-                                        <input value="50000" min="0" max="120000" step="500" type="range" />
+                                        <asp:TextBox runat="server" ID="valueMin" type="range" name="amountRange" min="0" max="2000" value="0" oninput="this.form.amountInput.value=this.value" />
+                                        <asp:TextBox runat="server" ID="valueMax" type="range" name="amountRangeMax" min="0" max="1000" value="500" oninput="this.form.amountInputMax.value=this.value" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                                    <asp:Button runat="server" type="submit" Text="Tìm kiếm" class="btn btn-primary py-3 px-5" ID="btnSearch" OnClick="btnSearch_Click" />
                                 </div>
                             </div>
                         </form>
@@ -147,7 +147,7 @@
                                     <p class="days"><span><%= item.thoi_gian %></span></p>
                                     <hr>
                                     <p class="bottom-area d-flex">
-                                        <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color:red"><%= item.giam_gia %> %</span> - <span style="text-decoration-line:line-through">$<%= item.gia %></span></span>
+                                        <span><i class="icon-map-o" style="margin-right: 5px;"></i><span style="color: red"><%= item.giam_gia %> %</span> - <span style="text-decoration-line: line-through">$<%= item.gia %></span></span>
                                         <span class="ml-auto"><a href="#">Đặt lịch</a></span>
                                     </p>
                                 </div>
@@ -159,13 +159,22 @@
                         <div class="col text-center">
                             <div class="block-27">
                                 <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
+                                    <li><asp:LinkButton runat="server" OnClick="ClickPrev" >&lt;</asp:LinkButton></li>
+                                    <%for (int i = 1; i <= totalPage; i++)
+                                        {
+                                            if (i == page)
+                                            { %>
+                                            <li class="active"><span><%=i %></span></li>
+                                            <%} else
+                                            { %>
+                                            <li>
+                                                
+                                                <a href="#"><%=i %></a>
+
+                                            </li>
+                                            <%}
+                                        } %>
+                                    <li ><asp:LinkButton runat="server" OnClick="ClickNext">&gt;</asp:LinkButton></li>
                                 </ul>
                             </div>
                         </div>

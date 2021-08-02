@@ -12,6 +12,8 @@ namespace DoAnAspNet.core.Interface
     {
         IEnumerable GetTourBySearch(OBFilter objFilter);
 
+        int CountTourBySearch(OBFilter objFilter);
+
         IEnumerable GetTourByDanhMuc(string ma_danhmuc);
 
         IEnumerable GetTourFeatured();

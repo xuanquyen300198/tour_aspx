@@ -100,7 +100,8 @@ ALTER TABLE hotel
 --
 ALTER TABLE hotel 
   ADD COLUMN dia_chi TEXT DEFAULT NULL;
-
+ALTER TABLE hotel 
+  ADD COLUMN ma_danhmuc VARCHAR(255) DEFAULT NULL;
 CREATE TABLE tour.account_user (
   id int(11) NOT NULL AUTO_INCREMENT,
   ma varchar(255) DEFAULT NULL,

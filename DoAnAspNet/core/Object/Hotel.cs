@@ -13,6 +13,7 @@ namespace DoAnAspNet.core.Object
         public string ten { get; set; }
         public string anh { get; set; }
         public string ma_tour { get; set; }
+        public string ma_danhmuc { get; set; }
         public string gia { get; set; }
         public string giam_gia { get; set; }
         public string yeu_thich { get; set; }
@@ -37,13 +38,14 @@ namespace DoAnAspNet.core.Object
         #region Contructor
         public Hotel() { }
 
-        public Hotel(int id, string ma, string ten, string anh, string ma_tour, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam,string anh_ct1, string anh_ct2, string anh_ct3, string dia_chi)
+        public Hotel(int id, string ma, string ten, string anh, string ma_tour, string ma_danhmuc, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam,string anh_ct1, string anh_ct2, string anh_ct3, string dia_chi)
         {
             this.id = id;
             this.ma = ma;
             this.ten = ten;
             this.anh = anh;
             this.ma_tour = ma_tour;
+            this.ma_danhmuc = ma_danhmuc;
             this.gia = gia;
             this.danh_gia = giam_gia;
             this.yeu_thich = yeu_thich;

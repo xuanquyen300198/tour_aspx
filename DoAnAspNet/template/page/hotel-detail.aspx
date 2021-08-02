@@ -127,11 +127,11 @@
                                     { %>
                                 <div class="col-md-4">
                                     <div class="destination">
-                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../images/room-4.jpg);"></a>
+                                        <a href="#" class="img img-2" style="background-image: url(../images/<%=item.anh %>);"></a>
                                         <div class="text p-3">
                                             <div class="d-flex">
                                                 <div class="one">
-                                                    <h3 style="min-height: 80px;"><a href="hotel-single.html"><%=item.ten %></a></h3>
+                                                    <h3 style="min-height: 80px;"><a href="#"><%=item.ten %></a></h3>
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -248,12 +248,14 @@
                         <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
                             <h4 class="mb-4">Khách sạn tương tự</h4>
                             <div class="row">
-                                <%if(lstHotelByTour.Count > 0) { 
-                                    for (int i = 0; i < 3; i++)
-                                    { %>
+                                <%if(lstHotelByTour.Count > 0) {
+                                        for (int i = 0; i < lstHotelByTour.Count; i++)
+                                        {
+                                            if (i >= 3) { break; }
+                                            %>
                                 <div class="col-md-4">
                                     <div class="destination">
-                                        <a href="hotel-detail.aspx?pId=<%= lstHotelByTour[i].id %>" class="img img-2" style="background-image: url(../images//hotel-1.jpg);"></a>
+                                        <a href="hotel-detail.aspx?pId=<%= lstHotelByTour[i].id %>" class="img img-2" style="background-image: url(../images/<%=lstHotelByTour[i].anh %>);"></a>
                                         <div class="text p-3">
                                             <div class="d-flex">
                                                 <div class="one">

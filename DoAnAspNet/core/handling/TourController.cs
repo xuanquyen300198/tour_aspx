@@ -20,10 +20,53 @@ namespace DoAnAspNet.core.handling
         {
             throw new NotImplementedException();
         }
+        public int CountTourBySearch(OBFilter objFilter)
+        {
+            string queryWhere = " Where 1 = 1";
+   
+            if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
+            {
+                queryWhere = queryWhere + " And ma_danhmuc = '" + objFilter.ma_danhmuc + "'";
+            }
 
+            if (!string.IsNullOrEmpty(objFilter.gia_tu))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam >= " + objFilter.gia_tu + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.gia_den))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam <= " + objFilter.gia_den + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ten))
+            {
+                queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
+            }
+            return _dbConnection.ExecuteScalar<int>($"SELECT count(1) FROM Tour" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
+
+        }
         public IEnumerable GetTourBySearch(OBFilter objFilter)
         {
-            return _dbConnection.Query<Tour>($"SELECT * FROM Tour WHERE ma_danhmuc = '{objFilter.ma}' And LOWER(ten) LIKE LOWER('%{objFilter.ten}%') LIMIT {objFilter.limit} OFFSET {objFilter.offset} ", commandType: System.Data.CommandType.Text);
+            string queryWhere = " Where 1 = 1";
+
+            if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
+            {
+                queryWhere = queryWhere + " And ma_danhmuc = '"+objFilter.ma_danhmuc + "'";
+            }
+            
+            if (!string.IsNullOrEmpty(objFilter.gia_tu))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam >= " + objFilter.gia_tu + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.gia_den))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam <= " + objFilter.gia_den + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ten))
+            {
+                queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
+            }
+            return _dbConnection.Query<Tour>($"SELECT * FROM Tour"+queryWhere + " LIMIT "+ objFilter.limit+" OFFSET "+ objFilter.offset + "", commandType: System.Data.CommandType.Text);
+           
         }
 
         public IEnumerable GetTourFeatured()

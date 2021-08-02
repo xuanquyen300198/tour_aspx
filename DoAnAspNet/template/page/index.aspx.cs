@@ -24,6 +24,7 @@ namespace DoAnAspNet.template.page
             lstTour = new List<Tour>();
             lstHotel = new List<Hotel>();
             lstDanhmuc = (List<DanhMuc>)danhMucsController.GetAllDanhMuc();
+            //selectDanhMuc.Items.Clear();
             if (lstDanhmuc.Count > 0)
             {
                 for (int i = 0; i < lstDanhmuc.Count; i++)
