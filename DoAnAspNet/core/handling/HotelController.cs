@@ -30,6 +30,10 @@ namespace DoAnAspNet.core.handling
         {
             string queryWhere = " Where 1 = 1";
 
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
+            }
             if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
             {
                 queryWhere = queryWhere + " And ma_danhmuc = '" + objFilter.ma_danhmuc + "'";
@@ -98,5 +102,6 @@ namespace DoAnAspNet.core.handling
             _id = "id";
             return base.DelEntity(id);
         }
+        
     }
 }

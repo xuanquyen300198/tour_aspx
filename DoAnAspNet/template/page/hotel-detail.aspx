@@ -1,27 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="hotel-detail.aspx.cs" Inherits="DoAnAspNet.template.page.hotel_detail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">dirEngine.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span>Menu
-            </button>
-
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="about-us.aspx" class="nav-link">Giới thiệu</a></li>
-                    <li class="nav-item"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
-                    <li class="nav-item active"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Add listing</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END nav -->
 
     <div class="hero-wrap js-fullheight" style="background-image: url('../images/bg_5.jpg');">
         <div class="overlay"></div>
@@ -127,11 +106,11 @@
                                     { %>
                                 <div class="col-md-4">
                                     <div class="destination">
-                                        <a href="#" class="img img-2" style="background-image: url(../images/<%=item.anh %>);"></a>
+                                        <a href="room-detail.aspx?pId=<%= item.id %>" class="img img-2" style="background-image: url(../images/<%=item.anh %>);"></a>
                                         <div class="text p-3">
                                             <div class="d-flex">
                                                 <div class="one">
-                                                    <h3 style="min-height: 80px;"><a href="#"><%=item.ten %></a></h3>
+                                                    <h3 style="min-height: 80px;"><a href="room-detail.aspx?pId=<%= item.id %>"><%=item.ten %></a></h3>
                                                     <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>

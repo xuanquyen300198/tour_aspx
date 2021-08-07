@@ -11,52 +11,52 @@ namespace DoAnAspNet.template.page
 {
 
 
-    public partial class tour_detail
+    public partial class book_tour_pay
     {
 
         /// <summary>
-        /// txtDateFrom1 control.
+        /// phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateFrom1;
+        protected global::System.Web.UI.WebControls.TextBox phone;
 
         /// <summary>
-        /// txtDateTo control.
+        /// drlLoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateTo;
+        protected global::System.Web.UI.WebControls.DropDownList drlLoai;
 
         /// <summary>
-        /// drlKH control.
+        /// cc_number control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlKH;
+        protected global::System.Web.UI.WebControls.TextBox cc_number;
 
         /// <summary>
-        /// drlTreEm control.
+        /// cc_cvc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlTreEm;
+        protected global::System.Web.UI.WebControls.TextBox cc_cvc;
 
         /// <summary>
-        /// btnBook control.
+        /// btnBookPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBook;
+        protected global::System.Web.UI.WebControls.LinkButton btnBookPay;
     }
 }

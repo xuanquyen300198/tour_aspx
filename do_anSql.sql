@@ -194,17 +194,28 @@ ALTER TABLE room
 --
 ALTER TABLE room 
   ADD COLUMN anh_ct3 VARCHAR(255) DEFAULT NULL;
-CREATE TABLE tour.gio_hang (
+
+ALTER TABLE room 
+  ADD COLUMN ngay_bat_dau DATE DEFAULT NULL;
+
+--
+-- Create column `ngay_ket_thuc` on table `room`
+--
+ALTER TABLE room 
+  ADD COLUMN ngay_ket_thuc DATE DEFAULT NULL;
+CREATE TABLE tour.book (
   id int(11) NOT NULL AUTO_INCREMENT,
   ma varchar(255) DEFAULT NULL,
   user_id int(11) DEFAULT NULL,
   ma_tour varchar(255) DEFAULT NULL,
   ma_room varchar(255) DEFAULT NULL,
   ngay_tao date DEFAULT NULL,
+  ngay_dat_tu date DEFAULT NULL,
+  ngay_dat_den date DEFAULT NULL,
   trang_thai int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 );
-CREATE TABLE tour.hoa_don (
+CREATE TABLE tour.bill (
   id int(11) NOT NULL AUTO_INCREMENT,
   ma varchar(255) DEFAULT NULL,
   user_id int(11) DEFAULT NULL,
@@ -251,5 +262,20 @@ BEGIN
   INSERT INTO account_user (username, password, email, ngay_tao, last_login)
     VALUES (username, password, email, DATE(ngay_tao), DATE(last_login));
 END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewBill (IN user_id int, IN ma_tour varchar(255), IN ma_room varchar(255),IN ho_ten varchar(255),IN dia_chi varchar(255), IN so_dien_thoai varchar(255),IN email varchar(255),IN loai_thanhtoan varchar(255),IN so_tai_khoan varchar(255),IN thanh_tien varchar(255), IN ngay_tao date)
+BEGIN
+  INSERT INTO bill (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, ngay_tao)
+    VALUES (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, DATE(ngay_tao));
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewBook (IN user_id int, IN ma_tour varchar(255), IN ma_room varchar(255),IN ngay_tao date,IN ngay_dat_tu date,IN ngay_dat_den date)
+BEGIN
+  INSERT INTO book (user_id, ma_tour, ma_room,ngay_tao,ngay_dat_tu,ngay_dat_den)
+    VALUES (user_id, ma_tour, ma_room, DATE(ngay_tao),DATE(ngay_dat_tu),DATE(ngay_dat_den));
+END;
+
 
 

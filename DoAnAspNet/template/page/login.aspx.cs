@@ -34,7 +34,7 @@ namespace DoAnAspNet.template.page
                 int id = account_User.id;
                 account_UsersController.UpdateLastLogin(lastLogin, id);
                 Session["User"] = name;
-                Session["User_ID"] = id;
+                Session["User_ID"] = id + "";
                 //Session["IDGioHang"] = account_UsersController.GetIDGioHangByMaUser(ma_User);
 
                 Response.Redirect("index.aspx");

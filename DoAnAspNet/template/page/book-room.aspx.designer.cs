@@ -11,52 +11,43 @@ namespace DoAnAspNet.template.page
 {
 
 
-    public partial class tour_detail
+    public partial class book_room
     {
 
         /// <summary>
-        /// txtDateFrom1 control.
+        /// lastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateFrom1;
+        protected global::System.Web.UI.WebControls.TextBox lastname;
 
         /// <summary>
-        /// txtDateTo control.
+        /// firstname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateTo;
+        protected global::System.Web.UI.WebControls.TextBox firstname;
 
         /// <summary>
-        /// drlKH control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlKH;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// drlTreEm control.
+        /// btnBookPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlTreEm;
-
-        /// <summary>
-        /// btnBook control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBook;
+        protected global::System.Web.UI.WebControls.LinkButton btnBookPay;
     }
 }

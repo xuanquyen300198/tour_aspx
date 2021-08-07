@@ -1,28 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="tour-detail.aspx.cs" Inherits="DoAnAspNet.template.page.tour_detail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">dirEngine.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span>Menu
-            </button>
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="about-us.aspx" class="nav-link">Giới thiệu</a></li>
-                    <li class="nav-item active"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
-                    <li class="nav-item"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Add listing</span></a></li>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-    <!-- END nav -->
 
     <div class="hero-wrap js-fullheight" style="background-image: url('../images/bg-deatail.jpg');">
         <div class="overlay"></div>
@@ -163,40 +142,33 @@
                                         <%}
                                     } %>
                                 <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                                    <h4 class="mb-5">Đặt lịch</h4>
+                                    <h4 class="mb-5">Đặt tour</h4>
                                     <div class="fields">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Name" style="max-width: none;">
+                                                    <asp:TextBox runat="server" ID="txtDateFrom1" TextMode="Date" CssClass="form-control" />
+                                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateFrom1" DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy" CssClass="text-danger" ErrorMessage="Ngày từ là bắt buộc." Display="Dynamic" ValidationGroup="SetRelase" style="max-width: none;" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Email" style="max-width: none;">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" id="checkin_date" class="form-control" placeholder="Date from" style="max-width: none;">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" id="checkin_date" class="form-control" placeholder="Date to" style="max-width: none;">
+                                                    <asp:TextBox runat="server" ID="txtDateTo" TextMode="Date" CssClass="form-control" />
+                                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateTo" DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy" CssClass="text-danger" ErrorMessage="Ngày đến là bắt buộc." Display="Dynamic" ValidationGroup="SetRelase" style="max-width: none;" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <div class="select-wrap one-third">
                                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                        <select name="" id="" class="form-control" placeholder="Guest" style="max-width: none;">
-                                                            <option value="0">Guest</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                        </select>
+                                                        <asp:DropDownList ID="drlKH" runat="server" class="form-control" placeholder="Khách hàng" style="max-width: none;">
+                                                            <asp:ListItem Text="Khách hàng" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                
                                                     </div>
                                                 </div>
                                             </div>
@@ -204,19 +176,19 @@
                                                 <div class="form-group">
                                                     <div class="select-wrap one-third">
                                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                        <select name="" id="" class="form-control" placeholder="Children" style="max-width: none;">
-                                                            <option value="0">Children</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                        </select>
+                                                        <asp:DropDownList ID="drlTreEm" runat="server" class="form-control" placeholder="Trẻ em" style="max-width: none;">
+                                                            <asp:ListItem Text="Trẻ em" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="submit" value="Đặt lịch" class="btn btn-primary py-3" style="max-width: none; font-size: 16px;">
+                                                    <asp:Button runat="server" type="submit" Text="Đặt tour" class="btn btn-primary py-3" style="max-width: none;font-size: 16px;" ID="btnBook" OnClick="btnBook_Click" />
                                                 </div>
                                             </div>
                                         </div>

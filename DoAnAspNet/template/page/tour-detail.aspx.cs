@@ -34,5 +34,13 @@ namespace DoAnAspNet.template.page
                 lstHotel = (List<Hotel>)hotelController.GetHotelByDanhMuc(tour.ma);
             }
         }
+        protected void btnBook_Click(object sender, EventArgs e)
+        {
+            string dateFrom = txtDateFrom1.Text.Trim().ToString();
+            string dateTo = txtDateTo.Text.Trim().ToString();
+            string selectedKH = drlKH.SelectedItem.Value;
+            string selectedTE = drlTreEm.SelectedItem.Value;
+            Response.Redirect("book-tour.aspx?pId=" + tour.id + "&dateFrom=" + dateFrom + "&dateTo=" + dateTo + "");
+        }
     }
 }

@@ -61,7 +61,34 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style=" <%=style %>">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">dirEngine.</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span>Menu
+                </button>
 
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item <%=indexAct %>"><a href="index.aspx" class="nav-link">Trang chủ</a></li>
+                        <li class="nav-item"><a href="about-us.aspx" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item <%=tourAct %>"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
+                        <li class="nav-item <%=hotelAct %>"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li class="nav-item <%=billAct %>"><a href="contact.html" class="nav-link">Hóa đơn</a></li>
+                        <%if (login)
+                            { %>
+                            <li class="nav-item cta"><asp:LinkButton runat="server" ID="btnLogOut" OnClick="btnLogOutClick" class="nav-link"><span>Đăng xuất</span></asp:LinkButton></li>
+                        <%}
+                            else
+                            { %>
+                            <li class="nav-item cta"><a href="login.aspx" class="nav-link"><span>Đăng nhập</span></a></li>
+                        <%} %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END nav -->
 
 
         <div class="" style="margin-top: -50px">

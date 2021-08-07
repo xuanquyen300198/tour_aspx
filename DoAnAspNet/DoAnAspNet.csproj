@@ -160,6 +160,10 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="template\book\css\016b.css" />
+    <Content Include="template\book\css\1128.css" />
+    <Content Include="template\book\css\75f6.css" />
+    <Content Include="template\book\css\9b699.css" />
     <Content Include="template\css\ajax-loader.gif" />
     <Content Include="template\css\animate.css" />
     <Content Include="template\css\aos.css" />
@@ -249,11 +253,16 @@
     <Content Include="template\login\css\style.css" />
     <Content Include="template\login\images\2.jpg" />
     <Content Include="template\page\about-us.aspx" />
+    <Content Include="template\page\book-rom-pay.aspx" />
+    <Content Include="template\page\book-room.aspx" />
+    <Content Include="template\page\book-tour-pay.aspx" />
+    <Content Include="template\page\book-tour.aspx" />
     <Content Include="template\page\hotel-detail.aspx" />
     <Content Include="template\page\hotel.aspx" />
     <Content Include="template\page\index.aspx" />
     <Content Include="template\page\login.aspx" />
     <Content Include="template\page\register.aspx" />
+    <Content Include="template\page\room-detail.aspx" />
     <Content Include="template\page\tour-detail.aspx" />
     <Content Include="template\page\tour.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -283,6 +292,8 @@
     <Compile Include="core\handling\Account_AdminsController.cs" />
     <Compile Include="core\handling\Account_UsersController.cs" />
     <Compile Include="core\handling\BaseController.cs" />
+    <Compile Include="core\handling\BillController.cs" />
+    <Compile Include="core\handling\BookController.cs" />
     <Compile Include="core\handling\DanhMucsController.cs" />
     <Compile Include="core\handling\HotelController.cs" />
     <Compile Include="core\handling\IAccount_Admin.cs" />
@@ -290,13 +301,17 @@
     <Compile Include="core\handling\TourController.cs" />
     <Compile Include="core\Interface\IAccount_User.cs" />
     <Compile Include="core\Interface\IBase.cs" />
+    <Compile Include="core\Interface\IBill.cs" />
+    <Compile Include="core\Interface\IBook.cs" />
     <Compile Include="core\Interface\IDanhMuc.cs" />
     <Compile Include="core\Interface\IHotel.cs" />
     <Compile Include="core\Interface\IRoom.cs" />
     <Compile Include="core\Interface\ITour.cs" />
     <Compile Include="core\Object\Account_Admin.cs" />
     <Compile Include="core\Object\Account_User.cs" />
+    <Compile Include="core\Object\Bill.cs" />
     <Compile Include="core\Object\DanhMuc.cs" />
+    <Compile Include="core\Object\Book.cs" />
     <Compile Include="core\Object\Hotel.cs" />
     <Compile Include="core\Object\OBFilter.cs" />
     <Compile Include="core\Object\Room.cs" />
@@ -333,6 +348,34 @@
     <Compile Include="template\page\about-us.aspx.designer.cs">
       <DependentUpon>about-us.aspx</DependentUpon>
     </Compile>
+    <Compile Include="template\page\book-rom-pay.aspx.cs">
+      <DependentUpon>book-rom-pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\book-rom-pay.aspx.designer.cs">
+      <DependentUpon>book-rom-pay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\book-room.aspx.cs">
+      <DependentUpon>book-room.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\book-room.aspx.designer.cs">
+      <DependentUpon>book-room.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\book-tour-pay.aspx.cs">
+      <DependentUpon>book-tour-pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\book-tour-pay.aspx.designer.cs">
+      <DependentUpon>book-tour-pay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\book-tour.aspx.cs">
+      <DependentUpon>book-tour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\book-tour.aspx.designer.cs">
+      <DependentUpon>book-tour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="template\page\hotel-detail.aspx.cs">
       <DependentUpon>hotel-detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +410,13 @@
     </Compile>
     <Compile Include="template\page\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\room-detail.aspx.cs">
+      <DependentUpon>room-detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\room-detail.aspx.designer.cs">
+      <DependentUpon>room-detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="template\page\tour-detail.aspx.cs">
       <DependentUpon>tour-detail.aspx</DependentUpon>

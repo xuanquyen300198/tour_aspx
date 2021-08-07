@@ -11,7 +11,7 @@ namespace DoAnAspNet.template.page
 {
 
 
-    public partial class tour_detail
+    public partial class room_detail
     {
 
         /// <summary>
