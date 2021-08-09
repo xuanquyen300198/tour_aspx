@@ -27,9 +27,12 @@ namespace DoAnAspNet.core.handling
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetBillBySearch(string keySearch)
+        public IEnumerable GetBillBySearch(Bill bill)
         {
-            throw new NotImplementedException();
+            return _dbConnection.Query<Bill>($"SELECT b.*,t.ten 'ten1',t.anh 'anh1',t.van_tat 'vantat1',r.ten 'ten2',r.anh 'anh2',r.van_tat 'vantat2' FROM Bill b " +
+                $"left join tour t on b.ma_tour = t.ma " +
+                $"left join room r on b.ma_room = r.ma " +
+                $"WHERE b.user_id = '{bill.user_id}'", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetBillFeatured()

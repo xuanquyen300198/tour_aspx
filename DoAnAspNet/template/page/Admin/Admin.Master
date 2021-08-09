@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="DoAnAspNet.template.page.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Quản trị viên!</title>
+    <asp:PlaceHolder runat="server"></asp:PlaceHolder>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nhu.css">
+    <script src="lib/ckeditor/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="css/pup-up.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!--Header-part-->
+        <div id="header">
+            <h1><a href="dashboard.html">Admin panel</a></h1>
+        </div>
+        <!--close-Header-part-->
+        <!--top-Header-menu-->
+        <div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav">
+                <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i><span class="text">Welcome User</span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="icon-user"></i>Thông tin</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../Login.aspx"><i class="icon-key"></i>Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--close-top-Header-menu-->
+        <!--start-top-serch-->
+        <%--<div id="search">
+            <input type="text" placeholder="Search here..." />
+            <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
+        </div>--%>
+        <!--close-top-serch-->
+        <!--sidebar-menu-->
+        <div id="sidebar">
+            <a href="#" class="visible-phone"><i class="icon-reorder"></i>Thống kê</a>
+            <ul>
+                <li class="active"><a href="AdminIndex.aspx"><i class="icon icon-home"></i><span>Thống kê</span></a> </li>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Danh mục</span> <i class="icon-chevron-down icon-down"></i></a>
+                    <ul>
+                        <li><a href="AdminCategory-list.aspx">Tất cả danh mục</a></li>
+                        <li><a href="AdminCategory-add.aspx">Thêm danh mục</a></li>
+                    </ul>
+                </li>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Người dùng</span> <i class="icon-chevron-down icon-down"></i></a>
+                    <ul>
+                        <li><a href="AdminUser-list.aspx">Tất cả người dùng</a></li>
+                    </ul>
+                </li>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Sản phẩm</span> <i class="icon-chevron-down icon-down"></i></a>
+                    <ul>
+                        <li><a href="AdminProduct-list.aspx">Tất cả sản phẩm</a></li>
+                        <li><a href="AdminProduct-add.aspx">Thêm sản phẩm</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--sidebar-menu-->
+        <!--main-container-part-->
+        <div id="content">
+            <!--breadcrumbs-->
+            <div id="content-header">
+                <div id="breadcrumb"><a href="AdminIndex.aspx" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Trang chủ</a></div>
+            </div>
+            <!--End-breadcrumbs-->
+            <!--Action boxes-->
+            <div class="container-fluid">
+                <div class="quick-actions_homepage">
+                    <ul class="quick-actions">
+                        <li class="bg_lb span3"><a href="AdminIndex.aspx"><i class="icon-dashboard"></i>Thống kê kinh doanh </a></li>
+                        <li class="bg_lg span3"><a href="AdminCategory-list.aspx"><i class="icon-signal"></i>Danh mục</a> </li>
+                        <li class="bg_ly span3"><a href="AdminUser-list.aspx"><i class="icon-inbox"></i>Người dùng </a></li>
+                        <li class="bg_lo span3"><a href="AdminProduct-list.aspx"><i class="icon-th"></i>Sản phẩm</a> </li>
+                    </ul>
+                </div>
+                <!--End-Action boxes-->
+                <hr />
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!--Footer-part-->
+        <footer>
+            <div class="row-fluid">
+                <div id="footer" class="span12">2021 &copy; Mặc</div>
+            </div>
+        </footer>
+        <!--end-Footer-part-->
+        <script src="js/excanvas.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.peity.min.js"></script>
+        <script src="js/fullcalendar.min.js"></script>
+        <script src="js/matrix.js"></script>
+        <script src="js/matrix.interface.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="js/matrix.form_validation.js"></script>
+        <script src="js/jquery.uniform.js"></script>
+        <script src="js/select2.min.js"></script>
+        <script src="js/matrix.popover.js"></script>
+    </form>
+</body>
+</html>

@@ -23,16 +23,20 @@ namespace DoAnAspNet.core.handling
             return base.DelEntity(id);
         }
 
-        public IEnumerable GetDanhMucBySearch(string keySearch)
+        public IEnumerable GetDanhMucBySearch(OBFilter objFilter)
         {
-            if (keySearch !=null && keySearch.Equals(""))
+            string queryWhere = " Where 1 = 1";
+
+            if (!string.IsNullOrEmpty(objFilter.ma))
             {
-                return _dbConnection.Query<Tour>($"SELECT * FROM DANHMUC WHERE LOWER(ten) LIKE '%{keySearch}%'", commandType: System.Data.CommandType.Text);
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
             }
-            else
+            
+            if (!string.IsNullOrEmpty(objFilter.ten))
             {
-                return _dbConnection.Query<Tour>($"SELECT * FROM DANHMUC ", commandType: System.Data.CommandType.Text);
+                queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
             }
+            return _dbConnection.Query<DanhMuc>($"SELECT * FROM DANHMUC" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
             
         }
         public IEnumerable GetAllDanhMuc()
@@ -40,5 +44,20 @@ namespace DoAnAspNet.core.handling
             return _dbConnection.Query<DanhMuc>($"SELECT * FROM DANHMUC", commandType: System.Data.CommandType.Text);
         }
 
+        public int CountDanhMucBySearch(OBFilter objFilter)
+        {
+            string queryWhere = " Where 1 = 1";
+
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
+            }
+
+            if (!string.IsNullOrEmpty(objFilter.ten))
+            {
+                queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
+            }
+            return _dbConnection.ExecuteScalar<int>($"SELECT count(*) FROM DANHMUC" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace DoAnAspNet
                     hotelAct = " ";
                     tourAct = " ";
                     indexAct = " ";
-                    style = "";
+                    style = "background-color: lightblue !important;margin-top: -70px;";
                     break;
                 case "book-room":
                     billAct = " active";

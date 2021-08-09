@@ -21,6 +21,13 @@ namespace DoAnAspNet.core.Object
         public string so_tai_khoan { get; set; }
         public string thanh_tien { get; set; }
         public string ngay_tao { get; set; }
+        public string ten1 { get; set; }
+        public string ten2 { get; set; }
+        public string anh1 { get; set; }
+        public string anh2 { get; set; }
+        public string vantat1 { get; set; }
+        public string vantat2 { get; set; }
+
         public Bill() { }
         public Bill(int user_id, string ma_tour, string ma_room, string ho_ten, string dia_chi, string so_dien_thoai, string email, int loai_thanhtoan, string so_tai_khoan, string thanh_tien, string ngay_tao)
         {
@@ -36,7 +43,7 @@ namespace DoAnAspNet.core.Object
             this.thanh_tien = thanh_tien;
             this.ngay_tao = ngay_tao;
         }
-        public Bill(int id, string ma, int user_id, string ma_tour, string ma_room, int trang_thai,string ho_ten, string dia_chi, string so_dien_thoai, string email, int loai_thanhtoan, string so_tai_khoan, string thanh_tien, string ngay_tao) 
+        public Bill(int id, string ma, int user_id, string ma_tour, string ma_room, int trang_thai,string ho_ten, string dia_chi, string so_dien_thoai, string email, int loai_thanhtoan, string so_tai_khoan, string thanh_tien, string ngay_tao, string ten1 ,string ten2, string anh1, string anh2, string vantat1, string vantat2) 
         {
             this.id = id;
             this.ma = ma;
@@ -52,6 +59,12 @@ namespace DoAnAspNet.core.Object
             this.so_tai_khoan = so_tai_khoan;
             this.thanh_tien = thanh_tien;
             this.ngay_tao = ngay_tao;
+            this.ten1 = ten1;
+            this.ten2 = ten2;
+            this.anh1 = anh1;
+            this.anh2 = anh2;
+            this.vantat1 = vantat1;
+            this.vantat2 = vantat2;
         }
 
     }

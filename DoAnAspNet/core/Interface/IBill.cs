@@ -10,7 +10,7 @@ namespace DoAnAspNet.core.Interface
 
     public interface IBill<Bill>
     {
-        IEnumerable GetBillBySearch(string keySearch);
+        IEnumerable GetBillBySearch(Bill bill);
 
         IEnumerable GetBillByDanhMuc(string ma_tour);
 

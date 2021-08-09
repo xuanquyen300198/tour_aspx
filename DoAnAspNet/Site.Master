@@ -75,7 +75,7 @@
                         <li class="nav-item <%=tourAct %>"><a href="tour.aspx" class="nav-link">Du lịch</a></li>
                         <li class="nav-item <%=hotelAct %>"><a href="hotel.aspx" class="nav-link">Khách sạn</a></li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item <%=billAct %>"><a href="contact.html" class="nav-link">Hóa đơn</a></li>
+                        <li class="nav-item <%=billAct %>"><a href="bill.aspx" class="nav-link">Hóa đơn</a></li>
                         <%if (login)
                             { %>
                             <li class="nav-item cta"><asp:LinkButton runat="server" ID="btnLogOut" OnClick="btnLogOutClick" class="nav-link"><span>Đăng xuất</span></asp:LinkButton></li>
