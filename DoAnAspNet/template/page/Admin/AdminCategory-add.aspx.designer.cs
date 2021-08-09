@@ -15,6 +15,15 @@ namespace DoAnAspNet.template.page.Admin
     {
 
         /// <summary>
+        /// txtMa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMa;
+
+        /// <summary>
         /// txtTenDanhMuc control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace DoAnAspNet.template.page.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtTenDanhMuc;
+
+        /// <summary>
+        /// avatarUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile avatarUpload;
+
+        /// <summary>
+        /// Avatar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Avatar;
 
         /// <summary>
         /// txtDetail control.

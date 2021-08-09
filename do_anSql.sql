@@ -277,5 +277,33 @@ BEGIN
     VALUES (user_id, ma_tour, ma_room, DATE(ngay_tao),DATE(ngay_dat_tu),DATE(ngay_dat_den));
 END;
 
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewDanhMuc (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN mo_ta text, IN so_luong_tour int)
+BEGIN
+  INSERT INTO danhmuc (ma, ten, anh, mo_ta, so_luong_tour)
+    VALUES (ma, ten, anh, mo_ta, so_luong_tour);
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_EditDanhMuc (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN mo_ta text, IN so_luong_tour int)
+BEGIN
+  UPDATE danhmuc d
+  SET d.ma = ma,
+      d.ten = d.ten,
+      d.anh = d.anh,
+      d.mo_ta = mo_ta,
+      d.so_luong_tour = so_luong_tour
+  WHERE d.id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelDanhMuc (IN id int)
+BEGIN
+  DELETE
+    FROM danhmuc
+  WHERE id = id;
+END
+
+
 
 

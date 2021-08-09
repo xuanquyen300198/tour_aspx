@@ -1,6 +1,7 @@
 ﻿using DoAnAspNet.core.handling;
 using DoAnAspNet.core.Object;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,6 +29,8 @@ namespace DoAnAspNet.template.page.Admin
                     danhMuc = danhMucsController.GetEntityByID(ma_danh_muc);
                     txtTenDanhMuc.Value = danhMuc.ten;
                     txtDetail.Text = danhMuc.mo_ta;
+                    txtMa.Value = danhMuc.ma;
+                    Avatar.ImageUrl = "../../images/" + danhMuc.anh;
                     txtSoLuongMon.Value = danhMuc.so_luong_tour.ToString();
                 }
             }
@@ -38,15 +41,27 @@ namespace DoAnAspNet.template.page.Admin
         {
             try
             {
-                string danh_muc = txtTenDanhMuc.Value.Trim();
+                string fileName = avatarUpload.PostedFile.FileName;
+                if (fileName == "")
+                {
+                    fileName = "NoImage.png";
+                }
+                string ma = txtMa.Value.Trim();
+                string ten = txtTenDanhMuc.Value.Trim();
                 string mo_ta = txtDetail.Text.Trim();
                 int so_luong_mon = int.Parse(txtSoLuongMon.Value.Trim());
-                danhMuc = new DanhMuc("", danh_muc,"", mo_ta, so_luong_mon);
+                danhMuc = new DanhMuc(ma, ten, fileName, mo_ta, so_luong_mon);
+
                 danhMucsController.AddNewEntity(danhMuc);
+                if (!File.Exists("../../images/" + fileName))
+                {
+                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileName));
+                }
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal2').modal('toggle');</script>");
             }
         }
@@ -55,11 +70,21 @@ namespace DoAnAspNet.template.page.Admin
         {
             try
             {
-                int ma_danh_muc = int.Parse(Session["ma_danh_muc_edit"].ToString());
+                int id = int.Parse(Session["ma_danh_muc_edit"].ToString());
+                string ma = txtMa.Value.Trim();
                 string danh_muc = txtTenDanhMuc.Value.Trim();
                 string mo_ta = txtDetail.Text.Trim();
                 int so_luong_mon = int.Parse(txtSoLuongMon.Value.Trim());
-                danhMuc = new DanhMuc("", danh_muc, "", mo_ta, so_luong_mon);
+                string fileName = avatarUpload.PostedFile.FileName;
+                if (fileName == "")
+                {
+                    fileName = "NoImage.png";
+                }
+                danhMuc = new DanhMuc(id,ma, danh_muc, fileName, mo_ta, so_luong_mon);
+                if (!File.Exists("../../images/" + fileName))
+                {
+                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileName));
+                }
                 danhMucsController.EditEntity(danhMuc);
                 Session.Remove("ma_danh_muc_edit");
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");

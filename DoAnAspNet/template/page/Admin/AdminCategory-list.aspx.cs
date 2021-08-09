@@ -14,7 +14,7 @@ namespace DoAnAspNet.template.page.Admin
         List<DanhMuc> lstDanhMuc;
         DanhMucsController danhMucsController = new DanhMucsController();
         public OBFilter objFilter;
-        public int totalPage = 0;
+        public int totalPage = 1;
         public int count = 1;
         public int page = 1;
         protected void Page_Load(object sender, EventArgs e)
@@ -44,13 +44,13 @@ namespace DoAnAspNet.template.page.Admin
 
         protected void repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            int ma_danh_muc = int.Parse(e.CommandArgument.ToString());
+            int id = int.Parse(e.CommandArgument.ToString());
             if (e.CommandName == "delete")
             {
                 TourController tourController = new TourController();
-                if (!((List<Tour>)tourController.GetTourByDanhMuc(ma_danh_muc + "")).Any())
+                if (!((List<Tour>)tourController.GetTourByDanhMuc(id + "")).Any())
                 {
-                    danhMucsController.DelEntity(ma_danh_muc);
+                    danhMucsController.DelEntity(id);
                     ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
                 }
                 else
@@ -60,7 +60,7 @@ namespace DoAnAspNet.template.page.Admin
             }
             if (e.CommandName == "edit")
             {
-                Session["ma_danh_muc_edit"] = ma_danh_muc;
+                Session["ma_danh_muc_edit"] = id;
                 Response.Redirect("AdminCategory-add.aspx");
             }
         }

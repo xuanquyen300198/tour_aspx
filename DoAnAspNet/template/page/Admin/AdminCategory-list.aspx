@@ -1,23 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminCategory-list.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminCategory_list" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">s
    <div class="widget-box">
-       <div class="row">
-           <div class="col-1"></div>
-           <div class="col-4">
+       <div class="row-fluid">
+           <div style="width: 30%;
+    float: left;
+    margin-right: 50px;
+    margin-left: 20px;">
                <div class="form-group">
                   <label for="usr">Mã</label>
                   <asp:TextBox runat="server" ID="textMa" type="text" CssClass="input-s" />
                 </div> 
 
            </div>
-           <div class="col-4">
+           <div style="width: 30%;
+    float: left;
+    margin-right: 50px;">
                <div class="form-group">
                   <label for="usr">Tên</label>
                   <asp:TextBox runat="server" ID="textTen" type="text" CssClass="input-s" />
                 </div> 
 
            </div>
-           <div class="col-3" style="line-height: 90px;"><asp:Button runat="server" class="btn btn-primary" ID="btnSearch" OnClick="btnSearch_Click" Text="Tìm kiếm" /></div>
+           <div class="col-3" style="line-height: 75px;"><asp:Button runat="server" class="btn-cs btn btn-primary" ID="btnSearch" OnClick="btnSearch_Click" Text="Tìm kiếm" /></div>
        </div>
    </div>
     <div class="row-fluid">
@@ -58,17 +62,17 @@
             </div>
         </div>
         <div class="widget-box">
-            <nav aria-label="Page navigation example" style="margin-top: -20px;">
-              <ul class="pagination">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination-cs">
                 <li class="page-item">
-                  <asp:LinkButton runat="server" OnClick="ClickPrev" CssClass="page-link">&lt;&lt;</asp:LinkButton>
+                  <asp:LinkButton runat="server" OnClick="ClickPrev" CssClass="page-link-cs">&lt;&lt;</asp:LinkButton>
                 </li>
                 <asp:Repeater ID="repeaterPage" runat="server" OnItemCommand="repeater_ItemCommand1">
                     <ItemTemplate>
                         
                         <li class="page-item" >
                             
-                            <asp:LinkButton runat="server" CommandName="page" CommandArgument='<%# Eval("id") %>'  CssClass='page-link'>
+                            <asp:LinkButton runat="server" CommandName="page" CommandArgument='<%# Eval("id") %>'  CssClass='page-link-cs'>
                                 <%# ((Eval("id").ToString()!=(page+"") ) 
                                     ? String.Format("<span>{0}</span>", Eval("id")) : 
                                 String.Format("<span style='color:red'>{0}</span>", Eval("id"))) %>
@@ -78,7 +82,7 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <li class="page-item">
-                  <asp:LinkButton runat="server" OnClick="ClickNext" CssClass="page-link">&gt;&gt;</asp:LinkButton>
+                  <asp:LinkButton runat="server" OnClick="ClickNext" CssClass="page-link-cs">&gt;&gt;</asp:LinkButton>
                 </li>
               </ul>
             </nav>
@@ -93,10 +97,10 @@
                     <div class="icon-box">
                         <i class="material-icons">&#xE876;</i>
                     </div>
-                    <h4 class="modal-title w-100">Awesome!</h4>
+                    <h4 class="modal-title w-100">Thành công!</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                    <p class="text-center">Bạn đã xóa bản ghi thành công.</p>
                 </div>
                 <div class="modal-footer">
                     <asp:LinkButton runat="server" CssClass="btn btn-success btn-block" OnClick="Unnamed_Click">OK</asp:LinkButton>
@@ -114,10 +118,10 @@
                     <div class="icon-box2">
                         <i class="material-icons">&#xE5CD;</i>
                     </div>
-                    <h4 class="modal-title w-100">Sorry!</h4>
+                    <h4 class="modal-title w-100">Thất bại!</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Your transaction has failed. Please go back and try again.</p>
+                    <p class="text-center">Xóa thất bị.Vui lòng kiểm tra hệ thống.</p>
                 </div>
                 <div class="modal-footer">
                     <asp:LinkButton runat="server" CssClass="btn btn-success btn-block" OnClick="Unnamed_Click">OK</asp:LinkButton>
