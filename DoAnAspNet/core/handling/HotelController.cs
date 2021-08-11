@@ -75,7 +75,7 @@ namespace DoAnAspNet.core.handling
             {
                 queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
             }
-            return _dbConnection.ExecuteScalar<int>($"SELECT count(1) FROM Hotel" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
+            return _dbConnection.ExecuteScalar<int>($"SELECT count(1) FROM Hotel" + queryWhere+"", commandType: System.Data.CommandType.Text);
 
         }
         public IEnumerable GetHotelFeatured()

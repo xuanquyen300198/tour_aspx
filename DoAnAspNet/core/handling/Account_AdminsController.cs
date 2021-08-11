@@ -11,7 +11,7 @@ namespace DoAnAspNet.core.handling
     {
         public Account_Admin GetAdminByNameAndPass(string userName, string userPass)
         {
-            return _dbConnection.Query<Account_Admin>($"Select * from account_admin Where admin_username='{userName}' AND admin_password='{userPass}'").FirstOrDefault();
+            return _dbConnection.Query<Account_Admin>($"Select * from account_admin Where username='{userName}' AND password='{userPass}'").FirstOrDefault();
         }
     }
 }

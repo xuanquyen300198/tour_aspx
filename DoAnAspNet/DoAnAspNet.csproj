@@ -258,6 +258,7 @@
     <Content Include="template\page\Admin\AdminHotel-add.aspx" />
     <Content Include="template\page\Admin\AdminHotel-list.aspx" />
     <Content Include="template\page\Admin\AdminIndex.aspx" />
+    <Content Include="template\page\Admin\AdminLogin.aspx" />
     <Content Include="template\page\Admin\AdminProduct-add.aspx" />
     <Content Include="template\page\Admin\AdminProduct-list.aspx" />
     <Content Include="template\page\Admin\AdminRoom-add.aspx" />
@@ -626,6 +627,7 @@
     <Content Include="template\page\Admin\lib\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="template\page\Admin\lib\ckeditor\styles.js" />
     <Content Include="template\page\Admin\lib\ckeditor\vendor\promise.js" />
+    <Content Include="template\page\Admin\login\style.css" />
     <Content Include="template\page\bill.aspx" />
     <Content Include="template\page\book-rom-pay.aspx" />
     <Content Include="template\page\book-room.aspx" />
@@ -781,6 +783,13 @@
     </Compile>
     <Compile Include="template\page\Admin\AdminIndex.aspx.designer.cs">
       <DependentUpon>AdminIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="template\page\Admin\AdminProduct-add.aspx.cs">
       <DependentUpon>AdminProduct-add.aspx</DependentUpon>

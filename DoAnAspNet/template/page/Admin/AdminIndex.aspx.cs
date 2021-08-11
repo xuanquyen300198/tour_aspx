@@ -11,65 +11,190 @@ namespace DoAnAspNet.template.page.Admin
 {
     public partial class AdminIndex : System.Web.UI.Page
     {
-        public List<Book> lstBook;
-        //public List<GioHang_SanPham> gioHang_SanPhams;
-        //public List<PhanHoi> phanHois;
-        public int tongSoMon = 0;
-        public int tongSoDon = 0;
-        public int soDonDaGiao = 0;
-        public int soDonDangCho = 0;
-        public int tongTien = 0;
-        BookController bookController = new BookController();
-        //GioHang_SanPhamController gioHang_SanPhamController = new GioHang_SanPhamController();
-        //PhanHoiController phanHoiController = new PhanHoiController();
-
+        List<Bill> lstBill;
+        BillController billController = new BillController();
+        public OBFilter objFilter;
+        public int totalPage = 1;
+        public int count = 1;
+        public int page = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            lstBook = (List<Book>)bookController.GetAllEntity();
-            //phanHois = (List<PhanHoi>)phanHoiController.GetAllEntity();
-
-            foreach (var items in lstBook)
+            objFilter = new OBFilter();
+            objFilter.limit = 10;
+            objFilter.offset = 0;
+            lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
+            count = billController.CountBillByPage(objFilter);
+            if (count > 10)
             {
-                tongSoDon += 1;
-                //tongTien += items.;
-                //if (items.trang_thai_don_hang == 1)
-                //{
-                //    soDonDaGiao += 1;
-                //    tongSoMon += items.tong_so_mon;
-                //}
-                //else
-                //{
-                //    soDonDangCho += 1;
-                //}
+                totalPage = count / 10;
+            }
+            List<int> lstPage = new List<int>();
+            for (int i = 0; i < totalPage; i++)
+            {
+                lstPage.Add(i);
             }
 
-            repeater.DataSource = lstBook;
-            repeater.DataBind();
 
-            //repeater1.DataSource = phanHois;
-            repeater1.DataBind();
+            repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
+            repeaterPage.DataBind();
+            repeater.DataSource = lstBill;
+            repeater.DataBind();
 
         }
 
         protected void repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "update")
-            {
-                int IDDonHang = int.Parse(e.CommandArgument.ToString());
-                //int res = gioHang_SanPhamController.DelGioHang_SanPham(IDGioHang, ma_mon);
-                //int res = BookController.updateTrangThaiDonHang(IDDonHang);
-                Response.Redirect($"Page2.aspx?param={IDDonHang}");
-            }
-        }
-
-        protected void repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
+            int id = int.Parse(e.CommandArgument.ToString());
             if (e.CommandName == "delete")
             {
-                int id = int.Parse(e.CommandArgument.ToString());
-                //phanHoiController.DelEntity(id);
-                Response.Redirect("AdminIndex.aspx");
+
+                billController.DelEntity(id);
+                ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
+
             }
+            if (e.CommandName == "edit")
+            {
+                Session["id_edit"] = id;
+                Response.Redirect("AdminBill-add.aspx");
+            }
+        }
+        protected void repeater_ItemCommand1(object source, RepeaterCommandEventArgs e)
+        {
+            int pPage = int.Parse(e.CommandArgument.ToString());
+
+            if (e.CommandName == "page" && pPage != page)
+            {
+                page = pPage;
+                Session["page"] = page;
+                string ma = textMa.Text.Trim().ToString();
+                string ten = textTen.Text.Trim().ToString();
+                objFilter.offset = (pPage - 1) * 10;
+                objFilter.limit = 10;
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
+                count = billController.CountBillByPage(objFilter);
+                if (count > 10)
+                {
+                    totalPage = count / 10;
+                }
+                List<int> lstPage = new List<int>();
+                for (int i = 0; i < totalPage; i++)
+                {
+                    lstPage.Add(i);
+                }
+                repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
+                repeaterPage.DataBind();
+                repeater.DataSource = lstBill;
+                repeater.DataBind();
+
+
+            }
+
+        }
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string ma = textMa.Text.Trim().ToString();
+            string ten = textTen.Text.Trim().ToString();
+            objFilter = new OBFilter();
+            objFilter.limit = 10;
+            objFilter.offset = 0;
+            objFilter.ma = ma;
+            objFilter.ten = ten;
+            lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
+            count = billController.CountBillByPage(objFilter);
+
+            if (count > 10)
+            {
+                totalPage = count / 10;
+            }
+            List<int> lstPage = new List<int>();
+            for (int i = 0; i < totalPage; i++)
+            {
+                lstPage.Add(i);
+            }
+            repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
+            repeaterPage.DataBind();
+            repeater.DataSource = lstBill;
+            repeater.DataBind();
+        }
+        public void ClickPrev(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty((Session["page"] + "")))
+            {
+                page = int.Parse(Session["page"].ToString());
+            }
+            if (page != 1)
+            {
+                page--;
+                int pPage = page - 1;
+                Session["page"] = page;
+                string ma = textMa.Text.Trim().ToString();
+                string ten = textTen.Text.Trim().ToString();
+                objFilter.offset = (pPage - 1) * 10;
+                objFilter.limit = 10;
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
+                count = billController.CountBillByPage(objFilter);
+                if (count > 10)
+                {
+                    totalPage = count / 10;
+                }
+                List<int> lstPage = new List<int>();
+                for (int i = 0; i < totalPage; i++)
+                {
+                    lstPage.Add(i);
+                }
+                repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
+                repeaterPage.DataBind();
+                repeater.DataSource = lstBill;
+                repeater.DataBind();
+
+
+            }
+        }
+        public void ClickNext(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty((Session["page"] + "")))
+            {
+                page = int.Parse(Session["page"].ToString());
+            }
+            if (page != 1)
+            {
+                page++;
+                int pPage = page - 1;
+                Session["page"] = page;
+                string ma = textMa.Text.Trim().ToString();
+                string ten = textTen.Text.Trim().ToString();
+                objFilter.offset = (pPage - 1) * 10;
+                objFilter.limit = 10;
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
+                count = billController.CountBillByPage(objFilter);
+                if (count > 10)
+                {
+                    totalPage = count / 10;
+                }
+                List<int> lstPage = new List<int>();
+                for (int i = 0; i < totalPage; i++)
+                {
+                    lstPage.Add(i);
+                }
+                repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
+                repeaterPage.DataBind();
+                repeater.DataSource = lstBill;
+                repeater.DataBind();
+
+
+            }
+        }
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
+            Response.Redirect("AdminBill-list.aspx");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnAspNet.core.Object;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace DoAnAspNet.core.Interface
 
         IEnumerable GetBillFeatured();
 
-        IEnumerable GetBillByPage(int at, int total);
+        IEnumerable GetBillByPage(OBFilter obFilter);
+        int CountBillByPage(OBFilter obFilter);
 
         IEnumerable GetBillLaster();
 

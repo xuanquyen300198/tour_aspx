@@ -1607,10 +1607,9 @@ div.dataTables_wrapper .ui-widget-header {
 }
 .pagination-cs {
 	display: flex;
-	padding-left: 0;
+	margin-left: 0px !important;
 	list-style: none;
 	border-radius: .25rem;
-
 }
 .page-link-cs {
 	position: relative;

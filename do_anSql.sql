@@ -146,6 +146,7 @@ CREATE TABLE tour.account_admin (
   password varchar(255) DEFAULT NULL,
   ten varchar(255) DEFAULT NULL,
   ngay_sinh date DEFAULT NULL,
+  quyen int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 );
 -- danh muc

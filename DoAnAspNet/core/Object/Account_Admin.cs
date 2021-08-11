@@ -14,19 +14,21 @@ namespace DoAnAspNet.core.Object
         public string password { get; set; }
         public string ten { get; set; }
         public DateTime ngay_sinh { get; set; }
+        public int quyen { get; set; }
         #endregion
 
         #region Cotructor
-        public Account_Admin(int id, string username, string password, string ten, DateTime ngay_sinh)
+        public Account_Admin(int id, string username, string password, string ten, DateTime ngay_sinh, int quyen)
         {
             this.id = id;
             this.username = username;
             this.password = password;
             this.ten = ten;
             this.ngay_sinh = ngay_sinh;
+            this.quyen = quyen;
         }
 
-        public Account_Admin(int id,string ma, string username, string password, string ten, DateTime ngay_sinh)
+        public Account_Admin(int id,string ma, string username, string password, string ten, DateTime ngay_sinh , int quyen)
         {
             this.id = id;
             this.ma = ma;
@@ -34,6 +36,7 @@ namespace DoAnAspNet.core.Object
             this.password = password;
             this.ten = ten;
             this.ngay_sinh = ngay_sinh;
+            this.quyen = quyen;
         }
 
         #endregion

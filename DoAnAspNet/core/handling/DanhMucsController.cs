@@ -57,7 +57,7 @@ namespace DoAnAspNet.core.handling
             {
                 queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
             }
-            return _dbConnection.ExecuteScalar<int>($"SELECT count(*) FROM DANHMUC" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
+            return _dbConnection.ExecuteScalar<int>($"SELECT count(*) FROM DANHMUC" + queryWhere, commandType: System.Data.CommandType.Text);
         }
     }
 }
