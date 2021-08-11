@@ -285,12 +285,12 @@ BEGIN
 END;
 
 CREATE DEFINER = 'root'@'localhost'
-PROCEDURE tour.proc_EditDanhMuc (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN mo_ta text, IN so_luong_tour int)
+PROCEDURE tour.proc_EditDanhMuc (IN id varchar(255),IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN mo_ta text, IN so_luong_tour int)
 BEGIN
   UPDATE danhmuc d
   SET d.ma = ma,
-      d.ten = d.ten,
-      d.anh = d.anh,
+      d.ten = ten,
+      d.anh = anh,
       d.mo_ta = mo_ta,
       d.so_luong_tour = so_luong_tour
   WHERE d.id = id;
@@ -302,7 +302,127 @@ BEGIN
   DELETE
     FROM danhmuc
   WHERE id = id;
-END
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewTour (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_danhmuc varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255),IN dia_diem varchar(255))
+BEGIN
+  INSERT INTO tour (ma,ten,anh, ma_danhmuc,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3,dia_diem)
+    VALUES (ma,ten,anh, ma_danhmuc,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3,dia_diem);
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_EditTour (IN id int,IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_danhmuc varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255),IN dia_diem varchar(255))
+BEGIN
+  UPDATE tour d
+  SET d.ma = ma,
+      d.ten = ten,
+      d.anh = anh,
+      d.ma_danhmuc = ma_danhmuc,
+      d.gia = gia,
+      d.giam_gia = giam_gia,
+      d.mo_ta = mo_ta,
+      d.danh_gia = danh_gia,
+      d.thoi_gian = thoi_gian,
+      d.van_tat = van_tat,
+      d.gia_sau_giam = gia_sau_giam,
+      d.anh_ct1 = anh_ct1,
+      d.anh_ct2 = anh_ct2,
+      d.anh_ct3 = anh_ct3,
+      d.dia_diem = dia_diem
+  WHERE d.id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelTour (IN id int)
+BEGIN
+  DELETE
+    FROM tour
+  WHERE id = id;
+END;
+
+-- hotel
+  CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewHotel (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_danhmuc varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255),IN dia_chi varchar(255))
+BEGIN
+  INSERT INTO hotel (ma,ten,anh, ma_danhmuc,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3,dia_chi)
+    VALUES (ma,ten,anh, ma_danhmuc,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3,dia_chi);
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_EditHotel (IN id int,IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_danhmuc varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255),IN dia_chi varchar(255))
+BEGIN
+  UPDATE hotel d
+  SET d.ma = ma,
+      d.ten = ten,
+      d.anh = anh,
+      d.ma_danhmuc = ma_danhmuc,
+      d.gia = gia,
+      d.giam_gia = giam_gia,
+      d.mo_ta = mo_ta,
+      d.danh_gia = danh_gia,
+      d.thoi_gian = thoi_gian,
+      d.van_tat = van_tat,
+      d.gia_sau_giam = gia_sau_giam,
+      d.anh_ct1 = anh_ct1,
+      d.anh_ct2 = anh_ct2,
+      d.anh_ct3 = anh_ct3,
+      d.dia_chi = dia_chi
+  WHERE d.id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelHotel (IN id int)
+BEGIN
+  DELETE
+    FROM hotel
+  WHERE id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_GetHotels ()
+BEGIN
+  SELECT
+    *
+  FROM hotel h
+  ORDER BY h.id desc;
+END;
+-- room
+  CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewRoom (IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_hotel varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255))
+BEGIN
+  INSERT INTO room (ma,ten,anh, ma_hotel,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3)
+    VALUES (ma,ten,anh, ma_hotel,gia,giam_gia,mo_ta,danh_gia,thoi_gian,van_tat,gia_sau_giam,anh_ct1,anh_ct2,anh_ct3);
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_EditRoom (IN id int,IN ma varchar(255), IN ten varchar(255), IN anh varchar(255), IN ma_hotel varchar(255),IN gia varchar(255),IN giam_gia varchar(255),IN mo_ta text, IN danh_gia varchar(255),IN thoi_gian varchar(255),IN van_tat varchar(255),IN gia_sau_giam varchar(255),IN anh_ct1 varchar(255),IN anh_ct2 varchar(255),IN anh_ct3 varchar(255))
+BEGIN
+  UPDATE room d
+  SET d.ma = ma,
+      d.ten = ten,
+      d.anh = anh,
+      d.ma_hotel = ma_hotel,
+      d.gia = gia,
+      d.giam_gia = giam_gia,
+      d.mo_ta = mo_ta,
+      d.danh_gia = danh_gia,
+      d.thoi_gian = thoi_gian,
+      d.van_tat = van_tat,
+      d.gia_sau_giam = gia_sau_giam,
+      d.anh_ct1 = anh_ct1,
+      d.anh_ct2 = anh_ct2,
+      d.anh_ct3 = anh_ct3
+  WHERE d.id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelRoom (IN id int)
+BEGIN
+  DELETE
+    FROM hotel
+  WHERE id = id;
+END;
 
 
 

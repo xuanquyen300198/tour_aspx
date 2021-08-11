@@ -23,7 +23,11 @@ namespace DoAnAspNet.core.handling
         public int CountTourBySearch(OBFilter objFilter)
         {
             string queryWhere = " Where 1 = 1";
-   
+
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
+            }
             if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
             {
                 queryWhere = queryWhere + " And ma_danhmuc = '" + objFilter.ma_danhmuc + "'";
@@ -52,7 +56,10 @@ namespace DoAnAspNet.core.handling
             {
                 queryWhere = queryWhere + " And ma_danhmuc = '"+objFilter.ma_danhmuc + "'";
             }
-            
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
+            }
             if (!string.IsNullOrEmpty(objFilter.gia_tu))
             {
                 queryWhere = queryWhere + " And gia_sau_giam >= " + objFilter.gia_tu + "";

@@ -52,10 +52,10 @@
             <a href="#" class="visible-phone"><i class="icon-reorder"></i>Thống kê</a>
             <ul>
                 <li class="active"><a href="AdminIndex.aspx"><i class="icon icon-home"></i><span>Thống kê</span></a> </li>
-                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Danh mục</span> <i class="icon-chevron-down icon-down"></i></a>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Khu du lịch</span> <i class="icon-chevron-down icon-down"></i></a>
                     <ul>
-                        <li><a href="AdminCategory-list.aspx">Tất cả danh mục</a></li>
-                        <li><a href="AdminCategory-add.aspx">Thêm danh mục</a></li>
+                        <li><a href="AdminCategory-list.aspx">Tất cả khu du lịch</a></li>
+                        <li><a href="AdminCategory-add.aspx">Thêm khu du lịch</a></li>
                     </ul>
                 </li>
                 <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Người dùng</span> <i class="icon-chevron-down icon-down"></i></a>
@@ -63,10 +63,22 @@
                         <li><a href="AdminUser-list.aspx">Tất cả người dùng</a></li>
                     </ul>
                 </li>
-                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Sản phẩm</span> <i class="icon-chevron-down icon-down"></i></a>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Tour du lịch</span> <i class="icon-chevron-down icon-down"></i></a>
                     <ul>
-                        <li><a href="AdminProduct-list.aspx">Tất cả sản phẩm</a></li>
-                        <li><a href="AdminProduct-add.aspx">Thêm sản phẩm</a></li>
+                        <li><a href="AdminProduct-list.aspx">Tất cả tour du lịch</a></li>
+                        <li><a href="AdminProduct-add.aspx">Thêm tour du lịch</a></li>
+                    </ul>
+                </li>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Khách sạn</span> <i class="icon-chevron-down icon-down"></i></a>
+                    <ul>
+                        <li><a href="AdminHotel-list.aspx">Tất cả khách sạn</a></li>
+                        <li><a href="AdminHotel-add.aspx">Thêm khách sạn</a></li>
+                    </ul>
+                </li>
+                <li class="submenu"><a href="#"><i class="icon icon-th-list"></i><span>Phòng</span> <i class="icon-chevron-down icon-down"></i></a>
+                    <ul>
+                        <li><a href="AdminRoom-list.aspx">Tất cả phòng</a></li>
+                        <li><a href="AdminRoom-add.aspx">Thêm phòng</a></li>
                     </ul>
                 </li>
             </ul>

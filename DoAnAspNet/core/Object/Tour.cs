@@ -36,7 +36,43 @@ namespace DoAnAspNet.core.Object
         #endregion
         #region Contructor
         public Tour() { }
-
+        public Tour(string ma, string ten, string anh, string ma_danhmuc, string gia, string giam_gia,string mo_ta, string danh_gia, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3, string dia_diem)
+        {
+            this.ma = ma;
+            this.ten = ten;
+            this.anh = anh;
+            this.ma_danhmuc = ma_danhmuc;
+            this.gia = gia;
+            this.giam_gia = giam_gia;
+            this.mo_ta = mo_ta;
+            this.danh_gia = danh_gia;
+            this.thoi_gian = thoi_gian;
+            this.van_tat = van_tat;
+            this.gia_sau_giam = gia_sau_giam;
+            this.anh_ct1 = anh_ct1;
+            this.anh_ct2 = anh_ct2;
+            this.anh_ct3 = anh_ct3;
+            this.dia_diem = dia_diem;
+        }
+        public Tour(int id,string ma, string ten, string anh, string ma_danhmuc, string gia, string giam_gia, string mo_ta, string danh_gia, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3, string dia_diem)
+        {
+            this.id = id;
+            this.ma = ma;
+            this.ten = ten;
+            this.anh = anh;
+            this.ma_danhmuc = ma_danhmuc;
+            this.gia = gia;
+            this.giam_gia = giam_gia;
+            this.mo_ta = mo_ta;
+            this.danh_gia = danh_gia;
+            this.thoi_gian = thoi_gian;
+            this.van_tat = van_tat;
+            this.gia_sau_giam = gia_sau_giam;
+            this.anh_ct1 = anh_ct1;
+            this.anh_ct2 = anh_ct2;
+            this.anh_ct3 = anh_ct3;
+            this.dia_diem = dia_diem;
+        }
         public Tour(int id, string ma, string ten, string anh, string ma_danhmuc, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3, string dia_diem)
         {
             this.id = id;
@@ -45,7 +81,7 @@ namespace DoAnAspNet.core.Object
             this.anh = anh;
             this.ma_danhmuc = ma_danhmuc;
             this.gia = gia;
-            this.danh_gia = giam_gia;
+            this.giam_gia = giam_gia;
             this.yeu_thich = yeu_thich;
             this.mo_ta = mo_ta;
             this.danh_gia = danh_gia;

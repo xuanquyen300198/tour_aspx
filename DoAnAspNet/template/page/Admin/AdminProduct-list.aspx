@@ -1,70 +1,96 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminProduct-list.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminProduct_list" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="widget-box">
+       <div class="row-fluid">
+           <div style="width: 30%;
+    float: left;
+    margin-right: 50px;
+    margin-left: 20px;">
+               <div class="form-group">
+                  <label for="usr">Mã</label>
+                  <asp:TextBox runat="server" ID="textMa" type="text" CssClass="input-s" />
+                </div> 
+
+           </div>
+           <div style="width: 30%;
+    float: left;
+    margin-right: 50px;">
+               <div class="form-group">
+                  <label for="usr">Tên</label>
+                  <asp:TextBox runat="server" ID="textTen" type="text" CssClass="input-s" />
+                </div> 
+
+           </div>
+           <div class="col-3" style="line-height: 75px;"><asp:Button runat="server" class="btn-cs btn btn-primary" ID="btnSearch" OnClick="btnSearch_Click" Text="Tìm kiếm" /></div>
+       </div>
+   </div>
     <div class="row-fluid">
         <div class="widget-box">
             <div class="widget-title">
                 <span class="icon"><i class="icon-th"></i></span>
-                <h5>Danh sách Tour du lịch</h5>
+                <h5>Danh sách Tour</h5>
             </div>
-            <div class="widget-content nopadding" style="max-height: 500px; overflow: auto; overflow-x: auto">
-                <table class="table table-bordered">
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 10%">Tên tour</th>
-                            <th style="width: 10%">Địa điểm</th>
-                            <th style="width: 5%">Đơn giá</th>
-                            <th style="width: 10%">Ảnh</th>
-                            <th style="width: 5%">Giảm giá</th>
-                            <th style="width: 5%">Giá sau giảm</th>
-                            <th style="width: 30%">Vắn tắt</th>
-                            <th style="width: 5%">Love</th>
-                            <th style="width: 30%">Mô tả</th>
-                            <th style="width: 30%">Đánh giá</th>
+                            <th>Danh mục</th>
+                            <th>Tên</th>
+                            <th>Ảnh</th>
+                            <th>Giá</th>
+                            <th>Giảm giá</th>
+                            <th>Giá sau giảm</th>
+                            <th>Vắn tắt</th>
+                            <th>Thời gian</th>
+                            <th>Địa điểm</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%--<asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand1">
+                        <asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand">
                             <ItemTemplate>
                                 <tr class="even gradeC">
-                                    <td><%# Eval("ten")%></td>
-                                    <td><%# Eval("ma_danhmuc") %></td>
-                                    <td style="text-align: center"><%#Eval("gia") %></td>
-                                    <td><%#Eval("anh")%></td>
-                                    
-                                    <td style="text-align: center"><%#Eval("giam_gia") %></td>
-                                    <td><p class="p-text"><%#Eval("gia_sau_giam")%></p>  </td>
-                                    <td><p class="p-text"><%#Eval("van_tat")%></p>  </td>
-                                    <td><%#Eval("love")%></td>
-                                    <td><p class="p-text"><%#Eval("mo_ta")%>     </p>  </td>
-                                    <td><p class="p-text"><%#Eval("danh_gia") %> </p>  </td>
+                                    <td><%# Eval("ma") %></td>
+                                    <td><%# Eval("ten") %></td>
+                                    <td><%# Eval("anh") %></td>
+                                    <td>$<%# Eval("gia") %></td>
+                                    <td><%# Eval("giam_gia") %> %</td>
+                                    <td>$<%# Eval("gia_sau_giam") %></td>
+                                    <td><%# Eval("van_tat") %></td>
+                                    <td><%# Eval("thoi_gian") %></td>
+                                    <td><%# Eval("dia_diem") %></td>
                                     <td>
                                         <asp:LinkButton runat="server" CommandName="delete" CommandArgument='<%# Eval("id") %>' CssClass="btn btn-danger btn-mini">Delete</asp:LinkButton>
-                                        <asp:LinkButton CssClass="btn btn-warning btn-mini" runat="server"  CommandName="edit" CommandArgument='<%# Eval("id") %>' >Edit</asp:LinkButton>
+                                        <asp:LinkButton CssClass="btn btn-warning btn-mini" CommandName="edit" CommandArgument='<%# Eval("id") %>' runat="server">Edit</asp:LinkButton>
                                     </td>
                                 </tr>
                             </ItemTemplate>
-                        </asp:Repeater>--%>
+                        </asp:Repeater>
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="widget-box">
-            <nav aria-label="Page navigation example" style="margin-top: -20px;">
-              <ul class="pagination">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination-cs">
                 <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
+                  <asp:LinkButton runat="server" OnClick="ClickPrev" CssClass="page-link-cs">&lt;&lt;</asp:LinkButton>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <asp:Repeater ID="repeaterPage" runat="server" OnItemCommand="repeater_ItemCommand1">
+                    <ItemTemplate>
+                        
+                        <li class="page-item" >
+                            
+                            <asp:LinkButton runat="server" CommandName="page" CommandArgument='<%# Eval("id") %>'  CssClass='page-link-cs'>
+                                <%# ((Eval("id").ToString()!=(page+"") ) 
+                                    ? String.Format("<span>{0}</span>", Eval("id")) : 
+                                String.Format("<span style='color:red'>{0}</span>", Eval("id"))) %>
+                            </asp:LinkButton>
+
+                        </li>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
+                  <asp:LinkButton runat="server" OnClick="ClickNext" CssClass="page-link-cs">&gt;&gt;</asp:LinkButton>
                 </li>
               </ul>
             </nav>
@@ -79,13 +105,13 @@
                     <div class="icon-box">
                         <i class="material-icons">&#xE876;</i>
                     </div>
-                    <h4 class="modal-title w-100">Awesome!</h4>
+                    <h4 class="modal-title w-100">Thành công!</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                    <p class="text-center">Bạn đã xóa bản ghi thành công.</p>
                 </div>
                 <div class="modal-footer">
-                    <asp:LinkButton runat="server" CssClass="btn btn-success btn-block" OnClick="Unnamed_Click1">OK</asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success btn-block" OnClick="Unnamed_Click">OK</asp:LinkButton>
                 </div>
             </div>
         </div>
@@ -100,13 +126,13 @@
                     <div class="icon-box2">
                         <i class="material-icons">&#xE5CD;</i>
                     </div>
-                    <h4 class="modal-title w-100">Sorry!</h4>
+                    <h4 class="modal-title w-100">Thất bại!</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Your transaction has failed. Please go back and try again.</p>
+                    <p class="text-center">Xóa thất bị.Vui lòng kiểm tra hệ thống.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger btn-block" data-dismiss="modal">OK</button>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success btn-block" OnClick="Unnamed_Click">OK</asp:LinkButton>
                 </div>
             </div>
         </div>

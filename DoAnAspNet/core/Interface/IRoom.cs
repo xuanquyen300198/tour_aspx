@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnAspNet.core.Object;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace DoAnAspNet.core.Interface
 {
     public interface IRoom<Room>
     {
-        IEnumerable GetRoomBySearch(string keySearch);
+        IEnumerable GetRoomBySearch(OBFilter objFilter);
 
+        int CountRoomBySearch(OBFilter objFilter);
         IEnumerable GetRoomByDanhMuc(string ma_tour);
 
         IEnumerable GetRoomFeatured();

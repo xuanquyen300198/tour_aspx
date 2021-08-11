@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" ValidateRequest = "false" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminProduct-add.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminProduct_add" %>
+﻿<%@ Page Title="" Language="C#" ValidateRequest = "false" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminHotel-add.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminHotel_add" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         function previewFile() {
@@ -66,13 +66,13 @@
         <div class="widget-box">
             <div class="widget-title">
                 <span class="icon"><i class="icon-align-justify"></i></span>
-                <h5>Thêm tour du lịch mới</h5>
+                <h5>Thêm khách sạn mới</h5>
             </div>
             <div class="widget-content nopadding">
                 <div class="control-group">
-                    <label class="control-label">Mã tour:</label>
+                    <label class="control-label">Mã khách sạn:</label>
                     <div class="controls">
-                        <input type="text" id="txtMa" runat="server" class="span11" placeholder="Mã tour" />
+                        <input type="text" id="txtMa" runat="server" class="span11" placeholder="Mã khách sạn" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
                             runat="server"
                             ControlToValidate="txtMa"
@@ -81,9 +81,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label">Tên tour:</label>
+                    <label class="control-label">Tên khách sạn:</label>
                     <div class="controls">
-                        <input type="text" id="txtTen" runat="server" class="span11" placeholder="Tên tour" />
+                        <input type="text" id="txtTen" runat="server" class="span11" placeholder="Tên khách sạn" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3"
                             runat="server"
                             ControlToValidate="txtTen"

@@ -36,7 +36,41 @@ namespace DoAnAspNet.core.Object
         #endregion
         #region Contructor
         public Room() { }
-
+        public Room(string ma, string ten, string anh, string ma_hotel, string gia, string giam_gia, string mo_ta, string danh_gia, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3)
+        {
+            this.ma = ma;
+            this.ten = ten;
+            this.anh = anh;
+            this.ma_hotel = ma_hotel;
+            this.gia = gia;
+            this.giam_gia = giam_gia;
+            this.mo_ta = mo_ta;
+            this.danh_gia = danh_gia;
+            this.thoi_gian = thoi_gian;
+            this.van_tat = van_tat;
+            this.gia_sau_giam = gia_sau_giam;
+            this.anh_ct1 = anh_ct1;
+            this.anh_ct2 = anh_ct2;
+            this.anh_ct3 = anh_ct3;
+        }
+        public Room(int id, string ma, string ten, string anh, string ma_hotel, string gia, string giam_gia, string mo_ta, string danh_gia, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3)
+        {
+            this.id = id;
+            this.ma = ma;
+            this.ten = ten;
+            this.anh = anh;
+            this.ma_hotel = ma_hotel;
+            this.gia = gia;
+            this.giam_gia = giam_gia;
+            this.mo_ta = mo_ta;
+            this.danh_gia = danh_gia;
+            this.thoi_gian = thoi_gian;
+            this.van_tat = van_tat;
+            this.gia_sau_giam = gia_sau_giam;
+            this.anh_ct1 = anh_ct1;
+            this.anh_ct2 = anh_ct2;
+            this.anh_ct3 = anh_ct3;
+        }
         public Room(int id, string ma, string ten, string anh, string ma_hotel, string gia, string giam_gia, string yeu_thich, string mo_ta, string danh_gia, string ngay_tao, string ngay_capnhat, string ma_nguoi_tao, string ma_nguoi_capnhat, int trang_thai, string thoi_gian, string van_tat, string gia_sau_giam, string anh_ct1, string anh_ct2, string anh_ct3)
         {
             this.id = id;

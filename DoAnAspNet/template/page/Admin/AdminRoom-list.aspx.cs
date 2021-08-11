@@ -9,10 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace DoAnAspNet.template.page.Admin
 {
-    public partial class AdminProduct_list : System.Web.UI.Page
+    public partial class AdminRoom_list : System.Web.UI.Page
     {
-        List<Tour> lstTour;
-        TourController tourController = new TourController();
+        List<Room> lstRoom;
+        RoomController roomController = new RoomController();
         public OBFilter objFilter;
         public int totalPage = 1;
         public int count = 1;
@@ -22,8 +22,8 @@ namespace DoAnAspNet.template.page.Admin
             objFilter = new OBFilter();
             objFilter.limit = 10;
             objFilter.offset = 0;
-            lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
-            count = tourController.CountTourBySearch(objFilter);
+            lstRoom = (List<Room>)roomController.GetRoomBySearch(objFilter);
+            count = roomController.CountRoomBySearch(objFilter);
             if (count > 10)
             {
                 totalPage = count / 10;
@@ -37,7 +37,7 @@ namespace DoAnAspNet.template.page.Admin
 
             repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
             repeaterPage.DataBind();
-            repeater.DataSource = lstTour;
+            repeater.DataSource = lstRoom;
             repeater.DataBind();
 
         }
@@ -48,14 +48,14 @@ namespace DoAnAspNet.template.page.Admin
             if (e.CommandName == "delete")
             {
 
-                tourController.DelEntity(id);
+                roomController.DelEntity(id);
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
-                
+
             }
             if (e.CommandName == "edit")
             {
                 Session["id_edit"] = id;
-                Response.Redirect("AdminProduct-add.aspx");
+                Response.Redirect("AdminRoom-add.aspx");
             }
         }
         protected void repeater_ItemCommand1(object source, RepeaterCommandEventArgs e)
@@ -72,8 +72,8 @@ namespace DoAnAspNet.template.page.Admin
                 objFilter.limit = 10;
                 objFilter.ma = ma;
                 objFilter.ten = ten;
-                lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
-                count = tourController.CountTourBySearch(objFilter);
+                lstRoom = (List<Room>)roomController.GetRoomBySearch(objFilter);
+                count = roomController.CountRoomBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -85,7 +85,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstTour;
+                repeater.DataSource = lstRoom;
                 repeater.DataBind();
 
 
@@ -101,8 +101,8 @@ namespace DoAnAspNet.template.page.Admin
             objFilter.offset = 0;
             objFilter.ma = ma;
             objFilter.ten = ten;
-            lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
-            count = tourController.CountTourBySearch(objFilter);
+            lstRoom = (List<Room>)roomController.GetRoomBySearch(objFilter);
+            count = roomController.CountRoomBySearch(objFilter);
 
             if (count > 10)
             {
@@ -115,7 +115,7 @@ namespace DoAnAspNet.template.page.Admin
             }
             repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
             repeaterPage.DataBind();
-            repeater.DataSource = lstTour;
+            repeater.DataSource = lstRoom;
             repeater.DataBind();
         }
         public void ClickPrev(object sender, EventArgs e)
@@ -136,8 +136,8 @@ namespace DoAnAspNet.template.page.Admin
                 objFilter.limit = 10;
                 objFilter.ma = ma;
                 objFilter.ten = ten;
-                lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
-                count = tourController.CountTourBySearch(objFilter);
+                lstRoom = (List<Room>)roomController.GetRoomBySearch(objFilter);
+                count = roomController.CountRoomBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -149,7 +149,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstTour;
+                repeater.DataSource = lstRoom;
                 repeater.DataBind();
 
 
@@ -172,8 +172,8 @@ namespace DoAnAspNet.template.page.Admin
                 objFilter.limit = 10;
                 objFilter.ma = ma;
                 objFilter.ten = ten;
-                lstTour = (List<Tour>)tourController.GetTourBySearch(objFilter);
-                count = tourController.CountTourBySearch(objFilter);
+                lstRoom = (List<Room>)roomController.GetRoomBySearch(objFilter);
+                count = roomController.CountRoomBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -185,7 +185,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstTour;
+                repeater.DataSource = lstRoom;
                 repeater.DataBind();
 
 
@@ -194,7 +194,7 @@ namespace DoAnAspNet.template.page.Admin
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
-            Response.Redirect("AdminProduct-list.aspx");
+            Response.Redirect("AdminRoom-list.aspx");
         }
     }
 }

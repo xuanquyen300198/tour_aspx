@@ -10,23 +10,23 @@ using System.Web.UI.WebControls;
 
 namespace DoAnAspNet.template.page.Admin
 {
-    public partial class AdminProduct_add : System.Web.UI.Page
+    public partial class AdminRoom_add : System.Web.UI.Page
     {
-        public Tour tour;
-        TourController tourController = new TourController();
-        public List<DanhMuc> lstDanhMuc;
-        DanhMucsController danhMucsController = new DanhMucsController();
+        public Room room;
+        RoomController roomController = new RoomController();
+        public List<Hotel> lstHotel;
+        HotelController hotelController = new HotelController();
         public Boolean insert = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                lstDanhMuc = new List<DanhMuc>();
-                lstDanhMuc = (List<DanhMuc>)danhMucsController.GetAllDanhMuc();
-                drlDanhMuc.DataSource = lstDanhMuc;
-                drlDanhMuc.DataTextField = "ten";
-                drlDanhMuc.DataValueField = "ma";
-                drlDanhMuc.DataBind();
+                lstHotel = new List<Hotel>();
+                lstHotel = (List<Hotel>)hotelController.GetAllEntity();
+                drlHotel.DataSource = lstHotel;
+                drlHotel.DataTextField = "ten";
+                drlHotel.DataValueField = "ma";
+                drlHotel.DataBind();
 
                 //Avatar.ImageUrl = "img/NoImage.png";
                 btnSua.Enabled = false;
@@ -37,22 +37,21 @@ namespace DoAnAspNet.template.page.Admin
                     btnSua.Enabled = true;
                     btnThem.Enabled = false;
                     int ma_mon = int.Parse(Session["id_edit"].ToString());
-                    tour = new Tour();
-                    tour = tourController.GetEntityByID(ma_mon);
-                    txtMa.Value = tour.ma;
-                    txtTen.Value = tour.ten;
-                    txtDiaDiem.Value = tour.dia_diem;
-                    txtThoiGian.Value = tour.thoi_gian;
-                    txtDonGia.Value = tour.gia.ToString();
-                    Avatar.ImageUrl = "../../images/" + tour.anh;
-                    Image1.ImageUrl = "../../images/" + tour.anh_ct1;
-                    Image2.ImageUrl = "../../images/" + tour.anh_ct2;
-                    Image3.ImageUrl = "../../images/" + tour.anh_ct3;
-                    txtGiamGia.Value = tour.giam_gia.ToString();
-                    txtVanTat.Value = tour.van_tat;
-                    txtDetail.Text = tour.mo_ta;
-                    
-                    drlDanhMuc.SelectedValue = tour.ma_danhmuc.ToString();
+                    room = new Room();
+                    room = roomController.GetEntityByID(ma_mon);
+                    txtMa.Value = room.ma;
+                    txtTen.Value = room.ten;
+                    txtThoiGian.Value = room.thoi_gian;
+                    txtDonGia.Value = room.gia.ToString();
+                    Avatar.ImageUrl = "../../images/" + room.anh;
+                    Image1.ImageUrl = "../../images/" + room.anh_ct1;
+                    Image2.ImageUrl = "../../images/" + room.anh_ct2;
+                    Image3.ImageUrl = "../../images/" + room.anh_ct3;
+                    txtGiamGia.Value = room.giam_gia.ToString();
+                    txtVanTat.Value = room.van_tat;
+                    txtDetail.Text = room.mo_ta;
+
+                    drlHotel.SelectedValue = room.ma_hotel.ToString();
                 }
             }
         }
@@ -85,14 +84,14 @@ namespace DoAnAspNet.template.page.Admin
             int giam_gia = int.Parse(txtGiamGia.Value);
             string gia_sau_giam = (don_gia - (don_gia * giam_gia / 100)) + "";
             string vanTat = txtVanTat.Value;
-            string dia_diem = txtDiaDiem.Value;
             string thoi_gian = txtThoiGian.Value;
             string mo_ta = txtDetail.Text;
-            string ma_danh_muc = drlDanhMuc.SelectedValue;
-            tour = new Tour(ma,ten, fileName, ma_danh_muc+"", don_gia+"", giam_gia+"", mo_ta, "4",thoi_gian , vanTat, gia_sau_giam, fileNameCt1, fileNameCt2, fileNameCt2,dia_diem);
+            string ma_danh_muc = drlHotel.SelectedValue;
+            room = new Room(ma, ten, fileName, ma_danh_muc + "", don_gia + "", giam_gia + "", mo_ta, "4", thoi_gian, vanTat, gia_sau_giam, fileNameCt1, fileNameCt2, fileNameCt2);
+            roomController.AddNewEntity(room);
             try
             {
-                tourController.AddNewEntity(tour);
+                //roomController.AddNewEntity(room);
                 if (!File.Exists("../../images/" + fileName))
                 {
                     avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileName));
@@ -145,14 +144,13 @@ namespace DoAnAspNet.template.page.Admin
             int giam_gia = int.Parse(txtGiamGia.Value);
             string gia_sau_giam = (don_gia - (don_gia * giam_gia / 100)) + "";
             string vanTat = txtVanTat.Value;
-            string dia_diem = txtDiaDiem.Value;
             string thoi_gian = txtThoiGian.Value;
             string mo_ta = txtDetail.Text;
-            string ma_danh_muc = drlDanhMuc.SelectedValue;
-            tour = new Tour(int.Parse(Session["id_edit"].ToString()), ma, ten, fileName, ma_danh_muc + "", don_gia + "", giam_gia + "", mo_ta, "4", thoi_gian, vanTat, gia_sau_giam, fileNameCt1, fileNameCt2, fileNameCt2, dia_diem);
+            string ma_danh_muc = drlHotel.SelectedValue;
+            room = new Room(int.Parse(Session["id_edit"].ToString()), ma, ten, fileName, ma_danh_muc + "", don_gia + "", giam_gia + "", mo_ta, "4", thoi_gian, vanTat, gia_sau_giam, fileNameCt1, fileNameCt2, fileNameCt2);
             try
             {
-                tourController.EditEntity(tour);
+                roomController.EditEntity(room);
                 if (!File.Exists("../../img/product/discount/" + fileName))
                 {
                     avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileName));
@@ -180,13 +178,13 @@ namespace DoAnAspNet.template.page.Admin
         protected void Unnamed_Click1(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
-            Response.Redirect("AdminProduct-add.aspx");
+            Response.Redirect("AdminRoom-add.aspx");
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal2').modal('dismiss');</script>");
-            Response.Redirect("AdminProduct-add.aspx");
+            Response.Redirect("AdminRoom-add.aspx");
         }
     }
 }

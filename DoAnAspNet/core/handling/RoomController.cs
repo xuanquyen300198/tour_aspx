@@ -26,9 +26,60 @@ namespace DoAnAspNet.core.handling
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetRoomBySearch(string keySearch)
+        public IEnumerable GetRoomBySearch(OBFilter objFilter)
         {
-            throw new NotImplementedException();
+            string queryWhere = " Where 1 = 1";
+
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And r.ma = '" + objFilter.ma + "'";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
+            {
+                queryWhere = queryWhere + " And r.ma_hotel = '" + objFilter.ma_danhmuc + "'";
+            }
+
+            if (!string.IsNullOrEmpty(objFilter.gia_tu))
+            {
+                queryWhere = queryWhere + " And r.gia_sau_giam >= " + objFilter.gia_tu + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.gia_den))
+            {
+                queryWhere = queryWhere + " And r.gia_sau_giam <= " + objFilter.gia_den + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ten))
+            {
+                queryWhere = queryWhere + " And LOWER(r.ten) LIKE LOWER('%" + objFilter.ten + "%') ";
+            }
+            return _dbConnection.Query<Room>($"SELECT r.*, h.ten 'dia_chi' FROM Room r left join hotel h on r.ma_hotel = h.ma " + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
+        }
+
+        public int CountRoomBySearch(OBFilter objFilter)
+        {
+            string queryWhere = " Where 1 = 1";
+
+            if (!string.IsNullOrEmpty(objFilter.ma))
+            {
+                queryWhere = queryWhere + " And ma = '" + objFilter.ma + "'";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ma_danhmuc))
+            {
+                queryWhere = queryWhere + " And ma_hotel = '" + objFilter.ma_danhmuc + "'";
+            }
+
+            if (!string.IsNullOrEmpty(objFilter.gia_tu))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam >= " + objFilter.gia_tu + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.gia_den))
+            {
+                queryWhere = queryWhere + " And gia_sau_giam <= " + objFilter.gia_den + "";
+            }
+            if (!string.IsNullOrEmpty(objFilter.ten))
+            {
+                queryWhere = queryWhere + " And LOWER(ten) LIKE LOWER('%" + objFilter.ten + "%') ";
+            }
+            return _dbConnection.ExecuteScalar<int>($"SELECT count(*) FROM Room" + queryWhere + " LIMIT " + objFilter.limit + " OFFSET " + objFilter.offset + "", commandType: System.Data.CommandType.Text);
         }
 
         public IEnumerable GetRoomFeatured()
@@ -55,5 +106,7 @@ namespace DoAnAspNet.core.handling
             _id = "id";
             return base.DelEntity(id);
         }
+
+        
     }
 }

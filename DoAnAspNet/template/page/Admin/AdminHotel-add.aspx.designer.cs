@@ -11,7 +11,7 @@ namespace DoAnAspNet.template.page.Admin
 {
 
 
-    public partial class AdminProduct_add
+    public partial class AdminHotel_add
     {
 
         /// <summary>

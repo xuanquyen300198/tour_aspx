@@ -11,7 +11,7 @@ namespace DoAnAspNet.template.page.Admin
 {
 
 
-    public partial class AdminProduct_add
+    public partial class AdminRoom_add
     {
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace DoAnAspNet.template.page.Admin
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
-        /// drlDanhMuc control.
+        /// drlHotel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlDanhMuc;
+        protected global::System.Web.UI.WebControls.DropDownList drlHotel;
 
         /// <summary>
         /// txtDonGia control.
@@ -184,24 +184,6 @@ namespace DoAnAspNet.template.page.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-
-        /// <summary>
-        /// txtDiaDiem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDiaDiem;
-
-        /// <summary>
-        /// RequiredFieldValidator6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// txtVanTat control.

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminCategory-list.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminCategory_list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminHotel-list.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminHotel_list" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <div class="widget-box">
+    <div class="widget-box">
        <div class="row-fluid">
            <div style="width: 30%;
     float: left;
@@ -28,7 +28,7 @@
         <div class="widget-box">
             <div class="widget-title">
                 <span class="icon"><i class="icon-th"></i></span>
-                <h5>Product list</h5>
+                <h5>Danh sách Khách sạn</h5>
             </div>
             <div class="widget-content nopadding">
                 <table class="table table-bordered table-striped">
@@ -37,8 +37,12 @@
                             <th>Danh mục</th>
                             <th>Tên</th>
                             <th>Ảnh</th>
-                            <th>Mô tả</th>
-                            <th>Số lượng tour</th>
+                            <th>Giá</th>
+                            <th>Giảm giá</th>
+                            <th>Giá sau giảm</th>
+                            <th>Vắn tắt</th>
+                            <th>Thời gian</th>
+                            <th>Địa điểm</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,8 +52,12 @@
                                     <td><%# Eval("ma") %></td>
                                     <td><%# Eval("ten") %></td>
                                     <td><%# Eval("anh") %></td>
-                                    <td><%# Eval("mo_ta") %></td>
-                                    <td><%# Eval("so_luong_tour") %></td>
+                                    <td>$<%# Eval("gia") %></td>
+                                    <td><%# Eval("giam_gia") %> %</td>
+                                    <td>$<%# Eval("gia_sau_giam") %></td>
+                                    <td><%# Eval("van_tat") %></td>
+                                    <td><%# Eval("thoi_gian") %></td>
+                                    <td><%# Eval("dia_chi") %></td>
                                     <td>
                                         <asp:LinkButton runat="server" CommandName="delete" CommandArgument='<%# Eval("id") %>' CssClass="btn btn-danger btn-mini">Delete</asp:LinkButton>
                                         <asp:LinkButton CssClass="btn btn-warning btn-mini" CommandName="edit" CommandArgument='<%# Eval("id") %>' runat="server">Edit</asp:LinkButton>

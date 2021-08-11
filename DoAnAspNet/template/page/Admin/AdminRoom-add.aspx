@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" ValidateRequest = "false" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminProduct-add.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminProduct_add" %>
+﻿<%@ Page Title="" Language="C#" ValidateRequest = "false" MasterPageFile="~/template/page/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminRoom-add.aspx.cs" Inherits="DoAnAspNet.template.page.Admin.AdminRoom_add" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         function previewFile() {
@@ -66,13 +66,13 @@
         <div class="widget-box">
             <div class="widget-title">
                 <span class="icon"><i class="icon-align-justify"></i></span>
-                <h5>Thêm tour du lịch mới</h5>
+                <h5>Thêm phòng mới</h5>
             </div>
             <div class="widget-content nopadding">
                 <div class="control-group">
-                    <label class="control-label">Mã tour:</label>
+                    <label class="control-label">Mã phòng:</label>
                     <div class="controls">
-                        <input type="text" id="txtMa" runat="server" class="span11" placeholder="Mã tour" />
+                        <input type="text" id="txtMa" runat="server" class="span11" placeholder="Mã phòng" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
                             runat="server"
                             ControlToValidate="txtMa"
@@ -81,9 +81,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label">Tên tour:</label>
+                    <label class="control-label">Tên phòng:</label>
                     <div class="controls">
-                        <input type="text" id="txtTen" runat="server" class="span11" placeholder="Tên tour" />
+                        <input type="text" id="txtTen" runat="server" class="span11" placeholder="Tên phòng" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3"
                             runat="server"
                             ControlToValidate="txtTen"
@@ -92,9 +92,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label">Địa danh:</label>
+                    <label class="control-label">Khách sạn:</label>
                     <div class="controls">
-                        <asp:DropDownList ID="drlDanhMuc" runat="server">
+                        <asp:DropDownList ID="drlHotel" runat="server">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -167,17 +167,7 @@
                         </asp:RequiredFieldValidator>
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label">Địa điểm:</label>
-                    <div class="controls">
-                        <input type="text" id="txtDiaDiem" runat="server" class="span11" placeholder="Địa điểm" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6"
-                            runat="server"
-                            ControlToValidate="txtDiaDiem"
-                            ErrorMessage="Không được bỏ trống">
-                        </asp:RequiredFieldValidator>
-                    </div>
-                </div>
+                
                 <div class="control-group">
                     <label class="control-label">Vắn tắt:</label>
                     <div class="controls">
