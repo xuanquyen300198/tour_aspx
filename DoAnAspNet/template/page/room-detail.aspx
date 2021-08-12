@@ -495,6 +495,9 @@
                         
                         <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                             <h4 class="mb-5">kiểm tra phòng trống & đặt phòng</h4>
+                            <%if (alert) { %>
+                            <h4 class="mb-5">Phòng đang được trong thời gian sử dụng.Vui lòng chọn lại!</h4>
+                            <%} %>
                             <div class="fields">
                                 <div class="row">
                                     <div class="col-md-6">

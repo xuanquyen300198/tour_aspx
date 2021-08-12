@@ -16,6 +16,7 @@ namespace DoAnAspNet.template.page
         RoomController roomController = new RoomController();
         BookController bookController = new BookController();
         int idRoom;
+        public Boolean alert = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             string idPRoom = Request.QueryString["pId"].ToString();
@@ -43,7 +44,7 @@ namespace DoAnAspNet.template.page
             List<Book> listBook = (List<Book>)bookController.GetBookBySearch(bookSearch);
             if(listBook.Count > 0)
             {
-                Response.Write("<script>alert('Phòng đã đươc đặt trong thời gian bạn chọn!')</script>");
+                alert = true;
             }
             else
             {

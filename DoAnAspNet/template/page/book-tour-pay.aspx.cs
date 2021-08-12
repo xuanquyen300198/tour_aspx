@@ -2,6 +2,7 @@
 using DoAnAspNet.core.Object;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,12 @@ namespace DoAnAspNet.template.page
         public string hoTen = "";
         public string email = "";
         int idTour;
+        public double longTime;
+        public int total;
+        public int thanhTien;
+        public string quyDoi;
+        public int thue;
+        public int phiDichVu;
         protected void Page_Load(object sender, EventArgs e)
         {
             string idPTour = Request.QueryString["pId"].ToString();
@@ -28,13 +35,25 @@ namespace DoAnAspNet.template.page
             ngayDatDen = Request.QueryString["dateTo"].ToString();
             hoTen = Session["hoTen"].ToString();
             email = Session["mail"].ToString();
+
+            DateTime StartDate = DateTime.ParseExact(ngayDatTu, "yyyy-MM-dd", null);
+            DateTime EndDate = DateTime.ParseExact(ngayDatDen, "yyyy-MM-dd", null);
+            longTime = (EndDate - StartDate).TotalDays;
+
             idTour = int.Parse(idPTour);
             TourController TourController = new TourController();
             tour = new Tour();
             hotel = new Hotel();
             lstTourByTour = new List<Tour>();
             tour = TourController.GetEntityByID(idTour);
-            
+
+            total = Convert.ToInt32(longTime) * int.Parse(tour.gia_sau_giam);
+            thue = total * 10 / 100;
+            phiDichVu = total * 10 / 100;
+            thanhTien = total + thue + phiDichVu;
+            int thanhTienQ = 23000 * thanhTien;
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            quyDoi = double.Parse(thanhTienQ + "").ToString("#,###", cul.NumberFormat);
 
 
         }
@@ -53,13 +72,10 @@ namespace DoAnAspNet.template.page
                 string ngayTao = DateTime.Now.ToString("yyyy/MM/dd");
                 string ngayTu = (Session["dateFrom"].ToString()).Replace("-", "/");
                 string ngayDen = (Session["dateTo"].ToString()).Replace("-", "/");
-                Book book = new Book(user_id, tour.ma, "", ngayTao, ngayTu, ngayDen);
-                bookController.AddNewEntity(book);
-
-                Bill bill = new Bill(user_id, tour.ma, "", hoTen, "", soDT, email, int.Parse(loai), soThe, tour.giam_gia, ngayTao);
+                Bill bill = new Bill(user_id, tour.ma, "", hoTen, "", soDT, email, int.Parse(loai), soThe, tour.giam_gia, ngayTao, ngayTu, ngayDen);
                 billController.AddNewEntity(bill);
                 Response.Write("<script>alert('Bạn đã đặt phòng thành công!')</script>");
-                Response.Redirect("index.aspx");
+                //Response.Redirect("index.aspx");
             }
             else
             {

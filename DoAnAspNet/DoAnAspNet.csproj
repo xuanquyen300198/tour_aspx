@@ -253,6 +253,7 @@
     <Content Include="template\login\css\style.css" />
     <Content Include="template\login\images\2.jpg" />
     <Content Include="template\page\about-us.aspx" />
+    <Content Include="template\page\Admin\AdminBill-view.aspx" />
     <Content Include="template\page\Admin\AdminCategory-add.aspx" />
     <Content Include="template\page\Admin\AdminCategory-list.aspx" />
     <Content Include="template\page\Admin\AdminHotel-add.aspx" />
@@ -263,6 +264,8 @@
     <Content Include="template\page\Admin\AdminProduct-list.aspx" />
     <Content Include="template\page\Admin\AdminRoom-add.aspx" />
     <Content Include="template\page\Admin\AdminRoom-list.aspx" />
+    <Content Include="template\page\Admin\AdminUser-add.aspx" />
+    <Content Include="template\page\Admin\AdminUser-list.aspx" />
     <Content Include="template\page\Admin\css\bootstrap-responsive.min.css" />
     <Content Include="template\page\Admin\css\bootstrap-wysihtml5.css" />
     <Content Include="template\page\Admin\css\bootstrap.min.css" />
@@ -749,6 +752,13 @@
     <Compile Include="template\page\Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="template\page\Admin\AdminBill-view.aspx.cs">
+      <DependentUpon>AdminBill-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminBill-view.aspx.designer.cs">
+      <DependentUpon>AdminBill-view.aspx</DependentUpon>
+    </Compile>
     <Compile Include="template\page\Admin\AdminCategory-add.aspx.cs">
       <DependentUpon>AdminCategory-add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -818,6 +828,20 @@
     </Compile>
     <Compile Include="template\page\Admin\AdminRoom-list.aspx.designer.cs">
       <DependentUpon>AdminRoom-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminUser-add.aspx.cs">
+      <DependentUpon>AdminUser-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminUser-add.aspx.designer.cs">
+      <DependentUpon>AdminUser-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminUser-list.aspx.cs">
+      <DependentUpon>AdminUser-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="template\page\Admin\AdminUser-list.aspx.designer.cs">
+      <DependentUpon>AdminUser-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="template\page\bill.aspx.cs">
       <DependentUpon>bill.aspx</DependentUpon>

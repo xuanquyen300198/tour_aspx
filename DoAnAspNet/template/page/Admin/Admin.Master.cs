@@ -9,9 +9,13 @@ namespace DoAnAspNet.template.page.Admin
 {
     public partial class Admin : System.Web.UI.MasterPage
     {
+        public string username = "Admin";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(Session["User"] as string))
+            {
+                string username = Session["User"].ToString();
+            }
         }
     }
 }

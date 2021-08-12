@@ -2,6 +2,7 @@
 using DoAnAspNet.core.Object;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,12 +19,23 @@ namespace DoAnAspNet.template.page
         public string[] dateTo;
         public string ngayDatTu = "";
         public string ngayDatDen = "";
+        public string strTu = "";
+        public string strDen = "";
         int idRoom;
+        public double longTime;
+        public int total;
+        public int thanhTien;
+        public string quyDoi;
+        public int thue;
+        public int phiDichVu;
         protected void Page_Load(object sender, EventArgs e)
         {
             string idPRoom = Request.QueryString["pId"].ToString();
             string strTu = Request.QueryString["dateFrom"].ToString();
             string strDen = Request.QueryString["dateTo"].ToString();
+            DateTime StartDate = DateTime.ParseExact(strTu, "yyyy-MM-dd", null);
+            DateTime EndDate = DateTime.ParseExact(strDen, "yyyy-MM-dd", null);
+            longTime = (EndDate - StartDate).TotalDays;
             Session["dateFrom"] = strTu;
             Session["dateTo"] = strDen;
             idRoom = int.Parse(idPRoom);
@@ -33,6 +45,13 @@ namespace DoAnAspNet.template.page
             hotel = new Hotel();
             lstRoomByTour = new List<Room>();
             room = roomController.GetEntityByID(idRoom);
+            total = Convert.ToInt32(longTime) * int.Parse(room.gia_sau_giam);
+            thue = total * 10 / 100;
+            phiDichVu = total * 10 / 100;
+            thanhTien = total + thue + phiDichVu;
+            int thanhTienQ = 23000 * thanhTien;
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            quyDoi = double.Parse(thanhTienQ+"").ToString("#,###", cul.NumberFormat);
             const char V = '-';
             dateFrom = strTu.Split(V);
             dateTo = strDen.Split(V);
@@ -65,8 +84,9 @@ namespace DoAnAspNet.template.page
             string mail = email.Text.Trim().ToString();
             Session["hoTen"] = ho + " " + ten;
             Session["mail"] = mail;
-            
-            Response.Redirect("book-rom-pay.aspx?pId=" + room.id + "&dateFrom=" + ngayDatTu + "&dateTo=" + ngayDatDen + "");
+            string strTu1 = Request.QueryString["dateFrom"].ToString();
+            string strDen1 = Request.QueryString["dateTo"].ToString();
+            Response.Redirect("book-rom-pay.aspx?pId=" + room.id + "&dateFrom=" + strTu1 + "&dateTo=" + strDen1 + "");
 
         }
     }

@@ -9,22 +9,21 @@ using System.Web.UI.WebControls;
 
 namespace DoAnAspNet.template.page.Admin
 {
-    public partial class AdminIndex : System.Web.UI.Page
+    public partial class AdminUser_list : System.Web.UI.Page
     {
-        List<Bill> lstBill;
-        BillController billController = new BillController();
-        BookController bookController = new BookController();
+        List<Account_Admin> lstAccount_Admin;
+        Account_AdminsController danhMucsController = new Account_AdminsController();
         public OBFilter objFilter;
         public int totalPage = 1;
         public int count = 1;
-        public int page = 1;
+        public int page = 1; 
         protected void Page_Load(object sender, EventArgs e)
         {
             objFilter = new OBFilter();
             objFilter.limit = 10;
             objFilter.offset = 0;
-            lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
-            count = billController.CountBillByPage(objFilter);
+            lstAccount_Admin = danhMucsController.GetAccount_AdminBySearch(objFilter);
+            count = danhMucsController.CountAccount_AdminBySearch(objFilter);
             if (count > 10)
             {
                 totalPage = count / 10;
@@ -38,7 +37,7 @@ namespace DoAnAspNet.template.page.Admin
 
             repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
             repeaterPage.DataBind();
-            repeater.DataSource = lstBill;
+            repeater.DataSource = lstAccount_Admin;
             repeater.DataBind();
 
         }
@@ -48,30 +47,20 @@ namespace DoAnAspNet.template.page.Admin
             int id = int.Parse(e.CommandArgument.ToString());
             if (e.CommandName == "delete")
             {
-                Bill billN = billController.GetEntityByID(id);
-                billController.DelEntity(id);
-                bookController.DelEntity(billN.book_id);
-                
-                
-                ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
-
+                try
+                {
+                    danhMucsController.DelEntity(id);
+                    ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
+                }
+                catch(Exception ex)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal2').modal('toggle');</script>");
+                }
             }
             if (e.CommandName == "edit")
             {
                 Session["id_edit"] = id;
-                Session["id_view"] = null;
-                Response.Redirect("AdminBill-view.aspx");
-            }
-            if (e.CommandName == "view")
-            {
-                Session["id_view"] = id;
-                Session["id_edit"] = null;
-                Response.Redirect("AdminBill-view.aspx");
-            }
-            if (e.CommandName == "print")
-            {
-                Session["id_print"] = id;
-                Response.Redirect("../print.aspx");
+                Response.Redirect("AdminUser-add.aspx");
             }
         }
         protected void repeater_ItemCommand1(object source, RepeaterCommandEventArgs e)
@@ -86,10 +75,10 @@ namespace DoAnAspNet.template.page.Admin
                 string ten = textTen.Text.Trim().ToString();
                 objFilter.offset = (pPage - 1) * 10;
                 objFilter.limit = 10;
-                objFilter.ten = ma;
-                objFilter.email = ten;
-                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
-                count = billController.CountBillByPage(objFilter);
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstAccount_Admin = danhMucsController.GetAccount_AdminBySearch(objFilter);
+                count = danhMucsController.CountAccount_AdminBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -101,7 +90,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstBill;
+                repeater.DataSource = lstAccount_Admin;
                 repeater.DataBind();
 
 
@@ -115,10 +104,10 @@ namespace DoAnAspNet.template.page.Admin
             objFilter = new OBFilter();
             objFilter.limit = 10;
             objFilter.offset = 0;
-            objFilter.ten = ma;
-            objFilter.email = ten;
-            lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
-            count = billController.CountBillByPage(objFilter);
+            objFilter.ma = ma;
+            objFilter.ten = ten;
+            lstAccount_Admin = danhMucsController.GetAccount_AdminBySearch(objFilter);
+            count = danhMucsController.CountAccount_AdminBySearch(objFilter);
 
             if (count > 10)
             {
@@ -131,7 +120,7 @@ namespace DoAnAspNet.template.page.Admin
             }
             repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
             repeaterPage.DataBind();
-            repeater.DataSource = lstBill;
+            repeater.DataSource = lstAccount_Admin;
             repeater.DataBind();
         }
         public void ClickPrev(object sender, EventArgs e)
@@ -150,10 +139,10 @@ namespace DoAnAspNet.template.page.Admin
                 string ten = textTen.Text.Trim().ToString();
                 objFilter.offset = (pPage - 1) * 10;
                 objFilter.limit = 10;
-                objFilter.ten = ma;
-                objFilter.email = ten;
-                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
-                count = billController.CountBillByPage(objFilter);
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstAccount_Admin = danhMucsController.GetAccount_AdminBySearch(objFilter);
+                count = danhMucsController.CountAccount_AdminBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -165,7 +154,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstBill;
+                repeater.DataSource = lstAccount_Admin;
                 repeater.DataBind();
 
 
@@ -186,10 +175,10 @@ namespace DoAnAspNet.template.page.Admin
                 string ten = textTen.Text.Trim().ToString();
                 objFilter.offset = (pPage - 1) * 10;
                 objFilter.limit = 10;
-                objFilter.ten = ma;
-                objFilter.email = ten;
-                lstBill = (List<Bill>)billController.GetBillByPage(objFilter);
-                count = billController.CountBillByPage(objFilter);
+                objFilter.ma = ma;
+                objFilter.ten = ten;
+                lstAccount_Admin = danhMucsController.GetAccount_AdminBySearch(objFilter);
+                count = danhMucsController.CountAccount_AdminBySearch(objFilter);
                 if (count > 10)
                 {
                     totalPage = count / 10;
@@ -201,7 +190,7 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 repeaterPage.DataSource = from c in lstPage select new { id = c + 1 }; ;
                 repeaterPage.DataBind();
-                repeater.DataSource = lstBill;
+                repeater.DataSource = lstAccount_Admin;
                 repeater.DataBind();
 
 
@@ -210,7 +199,8 @@ namespace DoAnAspNet.template.page.Admin
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
-            Response.Redirect("AdminIndex.aspx");
+            Response.Redirect("AdminCategory-list.aspx");
         }
+
     }
 }

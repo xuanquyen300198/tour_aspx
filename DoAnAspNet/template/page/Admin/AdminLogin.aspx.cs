@@ -30,7 +30,7 @@ namespace DoAnAspNet.template.page.Admin
             Account_Admin account = controller.GetAdminByNameAndPass(name, lassPass);
             if (account != null)
             {
-                Session["User"] = name;
+                Session["User"] = account.username;
                 Session["User_ID"] = account.id + "";
                 //Session["IDGioHang"] = account_UsersController.GetIDGioHangByMaUser(ma_User);
 

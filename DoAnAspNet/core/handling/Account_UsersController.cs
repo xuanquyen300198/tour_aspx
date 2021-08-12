@@ -41,7 +41,7 @@ namespace DoAnAspNet.core.handling
         }
         public override Account_User GetEntityByID(int id)
         {
-            _id = "ma_user";
+            _id = "id";
             return base.GetEntityByID(id);
         }
 

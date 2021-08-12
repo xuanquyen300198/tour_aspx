@@ -17,10 +17,13 @@ namespace DoAnAspNet.core.Object
         public string ma_room { get; set; }
         public string gia_den { get; set; }
         public int user_id { get; set; }
+        public string email { get; set; }
+
+        public string ho_ten { get; set; }
         public int limit { get; set; }
         public int offset { get; set; }
         public OBFilter() { }
-        public OBFilter( int id, string ma, string ten,string ma_danhmuc,string gia_tu, string gia_den, string ma_tour, string ma_room,int user_id, int limit, int offset) 
+        public OBFilter( int id, string ma, string ten,string ma_danhmuc,string gia_tu, string gia_den, string ma_tour, string ma_room,int user_id, string email, string ho_ten, int limit, int offset) 
         {
             this.id = id;
             this.ma = ma;
@@ -31,6 +34,8 @@ namespace DoAnAspNet.core.Object
             this.ma_tour = ma_tour;
             this.ma_room = ma_room;
             this.user_id = user_id;
+            this.email = email;
+            this.ho_ten = ho_ten;
             this.limit = limit;
             this.offset = offset;
         }

@@ -233,6 +233,8 @@ CREATE TABLE tour.bill (
   ngay_tao date DEFAULT NULL,
   PRIMARY KEY (id)
 );
+ALTER TABLE tour.bill 
+  ADD COLUMN book_id INT(11) DEFAULT NULL;
 -- thu tuc
 -- DROP PROCEDURE IF EXISTS proc_GetTourSale;
 CREATE DEFINER = 'root'@'localhost'
@@ -265,10 +267,14 @@ BEGIN
 END;
 
 CREATE DEFINER = 'root'@'localhost'
-PROCEDURE tour.proc_AddNewBill (IN user_id int, IN ma_tour varchar(255), IN ma_room varchar(255),IN ho_ten varchar(255),IN dia_chi varchar(255), IN so_dien_thoai varchar(255),IN email varchar(255),IN loai_thanhtoan varchar(255),IN so_tai_khoan varchar(255),IN thanh_tien varchar(255), IN ngay_tao date)
+PROCEDURE tour.proc_AddNewBill (IN user_id int, IN ma_tour varchar(255), IN ma_room varchar(255),IN ho_ten varchar(255),IN dia_chi varchar(255), IN so_dien_thoai varchar(255),IN email varchar(255),IN loai_thanhtoan varchar(255),IN so_tai_khoan varchar(255),IN thanh_tien varchar(255), IN ngay_tao date,IN ngay_dat_tu date,IN ngay_dat_den date)
 BEGIN
-  INSERT INTO bill (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, ngay_tao)
-    VALUES (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, DATE(ngay_tao));
+  SET @book_Id = '';
+  INSERT INTO book (user_id, ma_tour, ma_room,ngay_tao,ngay_dat_tu,ngay_dat_den)
+    VALUES (user_id, ma_tour, ma_room, DATE(ngay_tao),DATE(ngay_dat_tu),DATE(ngay_dat_den));
+  SELECT LAST_INSERT_ID() INTO @book_Id;
+  INSERT INTO bill (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, ngay_tao,book_id)
+    VALUES (user_id, ma_tour, ma_room, ho_ten, dia_chi,so_dien_thoai,email ,loai_thanhtoan, so_tai_khoan , thanh_tien, DATE(ngay_tao),@book_Id);
 END;
 
 CREATE DEFINER = 'root'@'localhost'
@@ -276,6 +282,7 @@ PROCEDURE tour.proc_AddNewBook (IN user_id int, IN ma_tour varchar(255), IN ma_r
 BEGIN
   INSERT INTO book (user_id, ma_tour, ma_room,ngay_tao,ngay_dat_tu,ngay_dat_den)
     VALUES (user_id, ma_tour, ma_room, DATE(ngay_tao),DATE(ngay_dat_tu),DATE(ngay_dat_den));
+  SELECT LAST_INSERT_ID();
 END;
 
 CREATE DEFINER = 'root'@'localhost'
@@ -422,6 +429,50 @@ PROCEDURE tour.proc_DelRoom (IN id int)
 BEGIN
   DELETE
     FROM hotel
+  WHERE id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelBill (IN id int)
+BEGIN
+  DELETE
+    FROM bill
+  WHERE id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelBook (IN id int)
+BEGIN
+  DELETE
+    FROM book
+  WHERE id = id;
+END;
+
+-- user admin
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_AddNewAccount_Admin (IN ma varchar(255), IN username varchar(255), IN password varchar(255),IN ten varchar(255), IN quyen int)
+BEGIN
+  INSERT INTO Account_Admin (ma, username, password, ten, quyen)
+    VALUES (ma, username, password, ten, quyen);
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_EditAccount_Admin (IN id int,IN ma varchar(255), IN username varchar(255), IN password varchar(255),IN ten varchar(255), IN quyen int)
+BEGIN
+  UPDATE Account_Admin d
+  SET d.ma = ma,
+      d.username = username,
+      d.password = password,
+      d.ten = ten,
+      d.quyen = quyen
+  WHERE d.id = id;
+END;
+
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE tour.proc_DelAccount_Admin (IN id int)
+BEGIN
+  DELETE
+    FROM Account_Admin
   WHERE id = id;
 END;
 

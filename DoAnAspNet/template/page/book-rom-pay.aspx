@@ -175,7 +175,7 @@
                                     <div class="bui-group__item bui-group bui-group--small">
                                        <div class="bui-group__item bui-f-font-emphasized">Tổng thời gian lưu trú:</div>
                                        <div class="bui-group__item bui-f-font-strong">
-                                          3 đêm
+                                          <%=longTime %> đêm
                                        </div>
                                     </div>
                                  </div>
@@ -203,7 +203,7 @@
                                                    </div>
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;5.047.104
+                                                   $&nbsp;<%=thanhTien %>
                                                 </div>
                                              </li>
                                              <li class="bp-price-details__charge-line">
@@ -211,7 +211,7 @@
                                                    10 % Thuế
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;504.710
+                                                   $&nbsp;<%=thue %>
                                                 </div>
                                              </li>
                                              <li class="bp-price-details__charge-line">
@@ -219,7 +219,7 @@
                                                    10 % Phí dịch vụ của chỗ nghỉ
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;504.710
+                                                   $&nbsp;<%=phiDichVu %>
                                                 </div>
                                              </li>
                                           </ul>
@@ -242,7 +242,7 @@
                                                    </div>
                                                    <div class="bp-price-details__charge-value e2e-price-details__total-charge--user" data-price="6056524" data-currency-code="VND" data-pd-total-usercurrency="">
                                                       <span data-component="core/animate-price" class="" data-value="6056524" data-currency="VND" data-precision="" data-animate-price-group-name="bp_user_total_price" data-animation-speed="0.7" style="display: inline-block;">
-                                                      VND&nbsp;6.056.524
+                                                      VND&nbsp;<%=quyDoi %>
                                                       </span>
                                                       *
                                                    </div>
@@ -263,7 +263,7 @@
                                                    </div>
                                                    <div class="bp-price-details__charge-value e2e-price-details__total-charge--property" data-price="264" data-currency-code="US$" data-pd-total-hotelcurrency="">
                                                       <span data-component="core/animate-price" class="" data-value="264" data-currency="US$" data-precision="" data-animate-price-group-name="bp_total_price" data-animation-speed="0.7" style="display: inline-block;">
-                                                      US$264
+                                                      US$<%=thanhTien %>
                                                       </span>
                                                    </div>
                                                 </div>
@@ -272,7 +272,7 @@
                                                 <span class="js-price-details__price-clarification--no-guests" data-copy="bp_for_x_guests_y_nights_1">(cho 2 khách và</span>
                                                 &nbsp;
                                                 <span>
-                                                3 đêm nghỉ)
+                                                <%=longTime %> đêm nghỉ)
                                                 </span>
                                              </div>
                                           </div>
@@ -327,7 +327,7 @@
                                     </div>
                                     <div class="bp-schedule__milestone-value">
                                        <span data-component="core/animate-price" class="" data-value="6056524.31" data-currency="" data-precision="0" data-animate-price-group-name="bp_payment_cancellation_cost_1" data-animation-speed="0.7" style="display: inline-block;">
-                                       VND&nbsp;6.056.524
+                                       VND&nbsp;<%=quyDoi %>
                                        </span>
                                     </div>
                                  </li>
@@ -618,9 +618,7 @@
                               ">
                               <div class="bp_legacy_form_box__title--block">
                                  <div class="bui-spacer--large">
-                                    <h2 class="bui-text--variant-featured_3 bp-text--emphasized">
-                                       Nhập thông tin của bạn
-                                    </h2>
+                                    
                                     <div class="bui-text--variant-body_2 bui-text--color-neutral_alt">
                                        Gần xong rồi! Chỉ cần điền phần thông tin <b class="bui-text--color-destructive">*</b> bắt buộc
                                     </div>
@@ -2644,7 +2642,34 @@
          </footer>
       </template>
    </div>
-   <script id="script-booking-availability-rooms-env" type="text/javascript" nonce="">
+    <div class="container">
+      <h2>Modal Example</h2>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+  
+    </div>
+   <script id="scrip    t-booking-availability-rooms-env" type="text/javascript" nonce="">
        // <![CDATA[
        booking.env.b_rooms = [];
        booking.env.you_can_book_at_most_x_rooms_with_this_hotel = 'Bạn có thể đặt nhiều nhất là 0 phòng với khách sạn này';
