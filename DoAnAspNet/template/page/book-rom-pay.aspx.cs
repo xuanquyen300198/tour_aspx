@@ -98,6 +98,10 @@ namespace DoAnAspNet.template.page
 
                 Bill bill = new Bill(user_id, "", room.ma, hoTen, "", soDT, email, int.Parse(loai), soThe, thanhTien+"", ngayTao, ngayTu, ngayDen);
                 billController.AddNewEntity(bill);
+                lblModalTitle.Text = "Thông báo!";
+                lblModalBody.Text = "Bạn đã đặt phòng thành công";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
                 //ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
                 Response.Write("<script>alert('Bạn đã đặt phòng thành công!')</script>");
                 //Response.Redirect("index.aspx");

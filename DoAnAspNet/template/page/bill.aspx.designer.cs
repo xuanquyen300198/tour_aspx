@@ -13,5 +13,23 @@ namespace DoAnAspNet.template.page
 
     public partial class bill
     {
+
+        /// <summary>
+        /// repeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeater;
+
+        /// <summary>
+        /// repeater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeater1;
     }
 }

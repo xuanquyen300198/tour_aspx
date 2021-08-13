@@ -41,8 +41,8 @@ namespace DoAnAspNet.template.page
                         user = usersController.GetEntityByID(bill.user_id);
                         int value = int.Parse(bill.thanh_tien);
                         discount = value * 10 / 100;
-                        vat = value * 8 / 100;
-                        total = value + discount + vat;
+                        vat = value * 10 / 100;
+                        total = value;
                     }
 
                 }

@@ -2469,7 +2469,9 @@ input[type="button"].btn-block {
       -o-transition: none;
       transition: none; } }
   .fade:not(.show) {
-    opacity: 0; }
+    /*opacity: 0; */
+
+  }
 
 .collapse:not(.show) {
   display: none; }

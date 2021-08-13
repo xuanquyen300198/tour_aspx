@@ -16,44 +16,41 @@
 						  <thead class="thead-primary">
 						    <tr>
 						    	<th>&nbsp;</th>
-						    	<th>&nbsp;</th>
 						    	<th>Tên tour</th>
-						      <th>Giá</th>
+						      <th>Thành tiền</th>
 							  <th>Loại thanh toán</th>
+							  <th>Email</th>
+							  <th>Họ tên</th>
 						      <th>Ngày tạo</th>
 						      <th>Chi tiết</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-							<%foreach (var item in lstBillTour)
-                                { %>
-								<tr class="alert" role="alert">
-						    	<td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" checked>
-										  <span class="checkmark"></span>
-										</label>
-						    	</td>
-						    	<td>
-						    		<div class="img" style="background-image: url(../images/<%=item.anh1%>);"></div>
-						    	</td>
-						      <td>
-						      	<div class="email">
-						      		<span><%=item.ten1%> </span>
-						      		<span><%=item.vantat1%></span>
-						      	</div>
-						      </td>
-						      <td>$<%=item.thanh_tien%></td>
-						      <td><%=item.loai_thanhtoan==1 ? "MasterCard" : (item.loai_thanhtoan==2 ? "Visa" : "JCB")%></td>
-							  <td><%=item.ngay_tao%></td>
-						      <td>
-						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				            	<span aria-hidden="true"><i class="fa fa-eye" style="font-size:20px"></i></span>
-								</button>
-							   </td>
-						    </tr>
-							<%} %>
-						    
+							  <asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand">
+								<ItemTemplate>
+									<tr class="alert" role="alert">
+										
+										<td>
+											
+											<div class="email">
+						      					<span><%# Eval("ten1")%> </span>
+						      					<span><%# Eval("vantat1")%></span>
+						      				</div>
+										</td>
+										<td>
+											<img class="rounded" src="../images/<%# Eval("anh1") %>" width="80" />
+										</td>
+										<td>$<%# Eval("thanh_tien") %></td>
+										<td><%# Eval("loai_thanhtoan").ToString()=="1" ? "MasterCard" : (Eval("loai_thanhtoan").ToString()=="2" ? "Visa" : "JCB")%></td>
+										<td><%# Eval("email") %></td>
+										<td><%# Eval("ho_ten") %></td>
+										<td><%# Eval("ngay_tao") %></td>
+										<td>
+											<asp:LinkButton CssClass="btn btn-success btn-mini" CommandName="print" CommandArgument='<%# Eval("id") %>' runat="server">Print</asp:LinkButton>
+										</td>
+									</tr>
+								</ItemTemplate>
+							</asp:Repeater>
 						  </tbody>
 						</table>
 					</div>
@@ -69,43 +66,40 @@
 						  <thead class="thead-primary">
 						    <tr>
 						    	<th>&nbsp;</th>
-						    	<th>&nbsp;</th>
 						    	<th>Tên tour</th>
-						      <th>Giá</th>
+						      <th>Thành tiền</th>
 							  <th>Loại thanh toán</th>
+							  <th>Email</th>
+							  <th>Họ tên</th>
 						      <th>Ngày tạo</th>
 						      <th>Chi tiết</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-							<%foreach (var item in lstBillRoom)
-                                { %>
-								<tr class="alert" role="alert">
-						    	<td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" checked>
-										  <span class="checkmark"></span>
-										</label>
-						    	</td>
-						    	<td>
-						    		<div class="img" style="background-image: url(../images/<%=item.anh2%>);"></div>
-						    	</td>
-						      <td>
-						      	<div class="email">
-						      		<span><%=item.ten2%> </span>
-						      		<span><%=item.vantat2%></span>
-						      	</div>
-						      </td>
-						      <td>$<%=item.thanh_tien%></td>
-						      <td><%=item.loai_thanhtoan==1 ? "MasterCard" : (item.loai_thanhtoan==2 ? "Visa" : "JCB")%></td>
-							  <td><%=item.ngay_tao%></td>
-						      <td>
-						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				            	<span aria-hidden="true"><i class="fa fa-eye" style="font-size:20px"></i></span>
-								</button>
-							   </td>
-						    </tr>
-							<%} %>
+							<asp:Repeater ID="repeater1" runat="server" OnItemCommand="repeater_ItemCommand1">
+								<ItemTemplate>
+									<tr class="alert" role="alert">
+										<td>
+											
+											<div class="email">
+						      					<span><%# Eval("ten2")%> </span>
+						      					<span><%# Eval("vantat2")%></span>
+						      				</div>
+										</td>
+										<td>
+											<img class="rounded" src="../images/<%# Eval("anh2") %>" width="80" />
+										</td>
+										<td>$<%# Eval("thanh_tien") %></td>
+										<td><%# Eval("loai_thanhtoan").ToString()=="1" ? "MasterCard" : (Eval("loai_thanhtoan").ToString()=="2" ? "Visa" : "JCB")%></td>
+										<td><%# Eval("email") %></td>
+										<td><%# Eval("ho_ten") %></td>
+										<td><%# Eval("ngay_tao") %></td>
+										<td>
+											<asp:LinkButton CssClass="btn btn-success btn-mini" CommandName="print" CommandArgument='<%# Eval("id") %>' runat="server">Print</asp:LinkButton>
+										</td>
+									</tr>
+								</ItemTemplate>
+							</asp:Repeater>
 						    
 						  </tbody>
 						</table>

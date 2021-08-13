@@ -44,7 +44,10 @@ namespace DoAnAspNet.template.page
             List<Book> listBook = (List<Book>)bookController.GetBookBySearch(bookSearch);
             if(listBook.Count > 0)
             {
-                alert = true;
+                lblModalTitle.Text = "Thông báo!";
+                lblModalBody.Text = "Phòng đang được trong thời gian sử dụng.Vui lòng chọn lại!";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
             }
             else
             {

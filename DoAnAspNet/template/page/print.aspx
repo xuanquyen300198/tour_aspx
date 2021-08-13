@@ -194,8 +194,8 @@
                                             <td><%=bill.ma_tour.ToString()!="" ?"Tour du lịch" : "Phòng"%></td>
                                             <td class="text-left"><%=bill.ma_tour.ToString()!="" ? bill.ten1 : bill.ten2%></td>
                                             <td class="text-right"><img class="rounded" src="../images/<%=bill.ma_tour.ToString()!="" ? bill.anh1 : bill.anh2 %>" width="80" /></td>
-                                            <td class="text-right"><%=bill.ngay_dat_tu.Substring(0,10)%></td>
-                                            <td class="text-right"><%=bill.ngay_dat_den.Substring(0,10)%></td>
+                                            <td class="text-right"><%=bill.ngay_dat_tu!=null ? bill.ngay_dat_tu.Substring(0,10) : ""%></td>
+                                            <td class="text-right"><%=bill.ngay_dat_den!=null ? bill.ngay_dat_den.Substring(0,10) : ""%></td>
                                             <td class="text-right">$<%=bill.thanh_tien%></td>
                                         </tr>
                                         
@@ -211,8 +211,8 @@
                                 </div>
                                 <div class="col-xs-6 text-right pull-right invoice-total">
                                     <p>Subtotal : $<%=total %></p>
-                                    <p>Discount (10%) : $<%=discount %> </p>
-                                    <p>VAT (8%) : $<%=vat %> </p>
+                                    <p>Service (10%) : $<%=discount %> </p>
+                                    <p>VAT (10%) : $<%=vat %> </p>
                                     <p>Total : $<%=bill.thanh_tien %> </p>
                                 </div>
                             </div>

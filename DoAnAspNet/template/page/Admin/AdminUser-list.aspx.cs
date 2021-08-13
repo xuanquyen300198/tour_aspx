@@ -19,6 +19,7 @@ namespace DoAnAspNet.template.page.Admin
         public int page = 1; 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["id_edit"] = null;
             objFilter = new OBFilter();
             objFilter.limit = 10;
             objFilter.offset = 0;

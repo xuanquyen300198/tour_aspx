@@ -99,15 +99,15 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 if (!File.Exists("../../images/" + fileNameCt1))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt1));
+                    avatarUploadCt1.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt1));
                 }
                 if (!File.Exists("../../images/" + fileNameCt2))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt2));
+                    avatarUploadCt2.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt2));
                 }
                 if (!File.Exists("../../images/" + fileNameCt3))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt3));
+                    avatarUploadCt3.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt3));
                 }
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
             }
@@ -159,15 +159,15 @@ namespace DoAnAspNet.template.page.Admin
                 }
                 if (!File.Exists("../../img/product/discount/" + fileNameCt1))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt1));
+                    avatarUploadCt1.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt1));
                 }
                 if (!File.Exists("../../img/product/discount/" + fileNameCt2))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt2));
+                    avatarUploadCt2.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt2));
                 }
                 if (!File.Exists("../../img/product/discount/" + fileNameCt3))
                 {
-                    avatarUpload.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt3));
+                    avatarUploadCt3.PostedFile.SaveAs(MapPath("../../images/" + fileNameCt3));
                 }
                 ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('toggle');</script>");
             }
@@ -180,7 +180,7 @@ namespace DoAnAspNet.template.page.Admin
         protected void Unnamed_Click1(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
-            Response.Redirect("AdminProduct-add.aspx");
+            Response.Redirect("AdminProduct-list.aspx");
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)

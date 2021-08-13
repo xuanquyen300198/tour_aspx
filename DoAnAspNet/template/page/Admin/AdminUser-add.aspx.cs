@@ -86,7 +86,7 @@ namespace DoAnAspNet.template.page.Admin
         protected void Unnamed_Click1(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(GetType(), "Show", "<script> $('#myModal').modal('dismiss');</script>");
-            Response.Redirect("AdminUser-add.aspx");
+            Response.Redirect("AdminUser-list.aspx");
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)

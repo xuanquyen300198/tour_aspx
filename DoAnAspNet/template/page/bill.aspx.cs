@@ -39,11 +39,34 @@ namespace DoAnAspNet.template.page
                         lstBillRoom.Add(item);
                     }
                 }
-
+                repeater.DataSource = lstBillTour;
+                repeater.DataBind();
+                repeater1.DataSource = lstBillRoom;
+                repeater1.DataBind();
             }
             else
             {
                 login = false;
+            }
+        }
+        protected void repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            int id = int.Parse(e.CommandArgument.ToString());
+            
+            if (e.CommandName == "print")
+            {
+                Session["id_print"] = id;
+                Response.Redirect("print.aspx");
+            }
+        }
+        protected void repeater_ItemCommand1(object source, RepeaterCommandEventArgs e)
+        {
+            int id = int.Parse(e.CommandArgument.ToString());
+
+            if (e.CommandName == "print")
+            {
+                Session["id_print"] = id;
+                Response.Redirect("print.aspx");
             }
         }
     }

@@ -495,9 +495,6 @@
                         
                         <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
                             <h4 class="mb-5">kiểm tra phòng trống & đặt phòng</h4>
-                            <%if (alert) { %>
-                            <h4 class="mb-5">Phòng đang được trong thời gian sử dụng.Vui lòng chọn lại!</h4>
-                            <%} %>
                             <div class="fields">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -638,5 +635,25 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 50px;">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <%--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+                            <h4 class="modal-title" style="margin-top: 25px;"><asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
     <!-- .section -->
 </asp:Content>

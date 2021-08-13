@@ -148,8 +148,14 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <%foreach (var item in lstTour)
-                    { %>
+                <%  int i = 0;
+                    foreach (var item in lstTour)
+                    {
+                        i++;
+                        if (i > 5) {
+                            break;
+                        }
+                        %>
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
                         <a href="tour-detail.aspx?pId=<%= item.id %>" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../images/<%= item.anh %>);">

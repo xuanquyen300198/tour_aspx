@@ -123,7 +123,7 @@
                     <label class="control-label">Ảnh chi tiết 1:</label>
                     <div class="controls">
 
-                        <input id="avatarUploadCt1" type="file" name="file" onchange="previewFile1()" runat="server" />               
+                        <input id="avatarUploadCt1" type="file" name="file1" onchange="previewFile1()" runat="server" />               
                         <asp:Image ID="Image1" runat="server" Height="225px" Width="225px" />
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                     <label class="control-label">Ảnh chi tiết 2:</label>
                     <div class="controls">
 
-                        <input id="avatarUploadCt2" type="file" name="file" onchange="previewFile2()" runat="server" />               
+                        <input id="avatarUploadCt2" type="file" name="file2" onchange="previewFile2()" runat="server" />               
                         <asp:Image ID="Image2" runat="server" Height="225px" Width="225px" />
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                     <label class="control-label">Ảnh chi tiết 3:</label>
                     <div class="controls">
 
-                        <input id="avatarUploadCt3" type="file" name="file" onchange="previewFile3()" runat="server" />               
+                        <input id="avatarUploadCt3" type="file" name="file3" onchange="previewFile3()" runat="server" />               
                         <asp:Image ID="Image3" runat="server" Height="225px" Width="225px" />
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 using DoAnAspNet.core.Object;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,12 @@ namespace DoAnAspNet.template.page
         public string ngayDatTu = "";
         public string ngayDatDen = "";
         int idtour;
+        public double longTime;
+        public int total;
+        public int thanhTien;
+        public string quyDoi;
+        public int thue;
+        public int phiDichVu;
         protected void Page_Load(object sender, EventArgs e)
         {
             string idPtour = Request.QueryString["pId"].ToString();
@@ -28,6 +35,13 @@ namespace DoAnAspNet.template.page
             TourController tourController = new TourController();
             tour = new Tour();
             tour = tourController.GetEntityByID(idtour);
+            total = int.Parse(tour.gia_sau_giam);
+            thue = total * 10 / 100;
+            phiDichVu = total * 10 / 100;
+            thanhTien = total + thue + phiDichVu;
+            int thanhTienQ = 23000 * thanhTien;
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            quyDoi = double.Parse(thanhTienQ + "").ToString("#,###", cul.NumberFormat);
             const char V = '-';
             dateFrom = strTu.Split(V);
             dateTo = strDen.Split(V);

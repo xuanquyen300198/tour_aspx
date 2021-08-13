@@ -175,7 +175,7 @@
                                     <div class="bui-group__item bui-group bui-group--small">
                                        <div class="bui-group__item bui-f-font-emphasized">Tổng thời gian lưu trú:</div>
                                        <div class="bui-group__item bui-f-font-strong">
-                                          3 đêm
+                                          <%=tour.thoi_gian %>
                                        </div>
                                     </div>
                                  </div>
@@ -203,7 +203,7 @@
                                                    </div>
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;5.047.104
+                                                   $&nbsp;<%=thanhTien %>
                                                 </div>
                                              </li>
                                              <li class="bp-price-details__charge-line">
@@ -211,7 +211,7 @@
                                                    10 % Thuế
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;504.710
+                                                   $&nbsp;<%=thue %>
                                                 </div>
                                              </li>
                                              <li class="bp-price-details__charge-line">
@@ -219,7 +219,7 @@
                                                    10 % Phí dịch vụ của chỗ nghỉ
                                                 </div>
                                                 <div class="bp-price-details__charge-value">
-                                                   VND&nbsp;504.710
+                                                   $&nbsp;<%=phiDichVu %>
                                                 </div>
                                              </li>
                                           </ul>
@@ -242,7 +242,7 @@
                                                    </div>
                                                    <div class="bp-price-details__charge-value e2e-price-details__total-charge--user" data-price="6056524" data-currency-code="VND" data-pd-total-usercurrency="">
                                                       <span data-component="core/animate-price" class="" data-value="6056524" data-currency="VND" data-precision="" data-animate-price-group-name="bp_user_total_price" data-animation-speed="0.7" style="display: inline-block;">
-                                                      VND&nbsp;6.056.524
+                                                      VND&nbsp;<%=quyDoi %>
                                                       </span>
                                                       *
                                                    </div>
@@ -263,7 +263,7 @@
                                                    </div>
                                                    <div class="bp-price-details__charge-value e2e-price-details__total-charge--property" data-price="264" data-currency-code="US$" data-pd-total-hotelcurrency="">
                                                       <span data-component="core/animate-price" class="" data-value="264" data-currency="US$" data-precision="" data-animate-price-group-name="bp_total_price" data-animation-speed="0.7" style="display: inline-block;">
-                                                      US$264
+                                                      US$<%=thanhTien %>
                                                       </span>
                                                    </div>
                                                 </div>
@@ -272,7 +272,7 @@
                                                 <span class="js-price-details__price-clarification--no-guests" data-copy="bp_for_x_guests_y_nights_1">(cho 2 khách và</span>
                                                 &nbsp;
                                                 <span>
-                                                3 đêm nghỉ)
+                                                <%=tour.thoi_gian %>)
                                                 </span>
                                              </div>
                                           </div>
@@ -327,7 +327,7 @@
                                     </div>
                                     <div class="bp-schedule__milestone-value">
                                        <span data-component="core/animate-price" class="" data-value="6056524.31" data-currency="" data-precision="0" data-animate-price-group-name="bp_payment_cancellation_cost_1" data-animation-speed="0.7" style="display: inline-block;">
-                                       VND&nbsp;6.056.524
+                                       VND&nbsp;<%=quyDoi %>
                                        </span>
                                     </div>
                                  </li>
@@ -2643,6 +2643,27 @@
             </div>
          </footer>
       </template>
+       <%-- modal --%>
+       <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 50px;">
+            <div class="modal-dialog">
+                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <%--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+                                <h4 class="modal-title"><asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                            </div>
+                            <div class="modal-body" style="text-align: center;">
+                                <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
    </div>
    <script id="script-booking-availability-rooms-env" type="text/javascript" nonce="">
        // <![CDATA[
