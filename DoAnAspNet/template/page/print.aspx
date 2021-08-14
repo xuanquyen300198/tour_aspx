@@ -139,7 +139,7 @@
 
                                 <div class="col-sm-6 top-right">
                                     <h3 class="marginright">INVOICE-1234578</h3>
-                                    <span class="marginright"><%=bill.ngay_tao.Substring(0,10).Replace("/","-")%></span>
+                                    <span class="marginright"><%=bill.ngay_tao!=null ? bill.ngay_tao.Substring(0,10).Replace("/","-") : ""%></span>
                                 </div>
 
                             </div>
