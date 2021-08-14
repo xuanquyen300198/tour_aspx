@@ -3,6 +3,8 @@ using DoAnAspNet.core.Object;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -51,7 +53,10 @@ namespace DoAnAspNet.template.page.Admin
             string ten = txtTen.Value;
             string username = txtUserName.Value;
             string quyen = drlDanhMuc.SelectedValue;
-            account = new Account_Admin(ma, username,"123456",ten, int.Parse(quyen));
+            SHA256 sh = SHA256.Create();
+            byte[] bytes = sh.ComputeHash(Encoding.UTF8.GetBytes("123456"));
+            string lassPass = BitConverter.ToString(bytes);
+            account = new Account_Admin(ma, username, lassPass, ten, int.Parse(quyen));
             try
             {
                 accountController.AddNewEntity(account);
@@ -70,7 +75,10 @@ namespace DoAnAspNet.template.page.Admin
             string ten = txtTen.Value;
             string username = txtUserName.Value;
             string quyen = drlDanhMuc.SelectedValue;
-            account = new Account_Admin(int.Parse(Session["id_edit"].ToString()),ma, username,"123456",ten, int.Parse(quyen));
+            SHA256 sh = SHA256.Create();
+            byte[] bytes = sh.ComputeHash(Encoding.UTF8.GetBytes("123456"));
+            string lassPass = BitConverter.ToString(bytes);
+            account = new Account_Admin(int.Parse(Session["id_edit"].ToString()),ma, username, lassPass, ten, int.Parse(quyen));
             
             try
             {
